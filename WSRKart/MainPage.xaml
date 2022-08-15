@@ -5,8 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WSRKart"
       mc:Ignorable="d" 
-      d:DesignHeight="450" 
-      d:DesignWidth="800"
+      d:DesignHeight="600" 
+      d:DesignWidth="1000"
       Title="MainPage"
       Background="White"
       ShowsNavigationUI="False"
@@ -17,54 +17,51 @@
         <Label Content="Москва, Россия 20 июня 2017" Background="LightGray" FontSize="24" HorizontalContentAlignment="Center"/>
         <Grid>
             <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition  />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
 
 
-        <TextBlock Grid.Column="0" Grid.Row="2" Margin="10,10,10,10">
+            <TextBlock Grid.Column="0" Margin="10,10,10,10">
             <Hyperlink NavigateUri="YesNo.xaml">
                 <Image Source="/Images/Shlem.png"/>
             </Hyperlink>
-        </TextBlock>
+            </TextBlock>
 
-        <Label Grid.Row="3" Grid.Column="0" Content="Регистрация гонщика" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" /> 
+            <Label Grid.Row="1" Grid.Column="0" Content="Регистрация гонщика&#xD;&#xA;" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" />
 
-        <TextBlock Grid.Column="1" Grid.Row="2" Margin="10,10,10,10">
+            <TextBlock Grid.Column="1" Margin="10,10,10,10">
             <Hyperlink NavigateUri="Sponsor.xaml" Cursor="Hand" >
                 <Image Source="/Images/Dengi.png"/>
             </Hyperlink>
-        </TextBlock>
+            </TextBlock>
 
-        <Label Grid.Row="3" Grid.Column="1" Content="Регистрация спонсора" HorizontalContentAlignment="Center"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="Регистрация спонсора" HorizontalContentAlignment="Center"/>
 
-        <TextBlock Grid.Column="2" Grid.Row="2" Margin="10,10,10,10">
+            <TextBlock Grid.Column="2" Margin="10,10,10,10">
             <Hyperlink NavigateUri="Info.xaml" >
-                <Image Source="/Images/Informatsia.png" />
+                <Image Source="/Images/Informatsia.png"  />
             </Hyperlink>
-        </TextBlock>
+            </TextBlock>
 
-        <Label Grid.Row="3" Grid.Column="2" Content="О Событии" HorizontalContentAlignment="Center"/>
+            <Label Grid.Row="1" Grid.Column="2" Content="О Событии" HorizontalContentAlignment="Center"/>
 
-        <TextBlock Grid.Column="3" Grid.Row="2" Margin="10,10,10,10">
+            <TextBlock Grid.Column="3" Margin="10,10,10,10">
             <Hyperlink NavigateUri="AutoPage.xaml" >
                 <Image Source="/Images/Klyuch.png" />
             </Hyperlink>
-        </TextBlock>
+            </TextBlock>
 
-        <Label Grid.Row="3" Grid.Column="3" Content="Вход в систему" HorizontalContentAlignment="Center"/>
+            <Label Grid.Row="1" Grid.Column="3" Content="Вход в систему" HorizontalContentAlignment="Center"/>
 
-    </Grid>
+        </Grid>
         <Label  Content="До начала события 0 лет, 8 месяцев, 5 дней, 13 минут и 18 секунд" Background="LightGray" HorizontalContentAlignment="Center" FontSize="20"/>
     </StackPanel>
 </Page>
