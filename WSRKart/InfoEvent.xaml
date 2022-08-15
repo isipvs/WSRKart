@@ -1,0 +1,50 @@
+﻿<Page x:Class="WSRKart.InfoEvent"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WSRKart"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="InfoEvent"
+      Background="White"
+      ShowsNavigationUI="False"
+      FontSize="20">
+    <StackPanel>
+        <Canvas Panel.ZIndex="1" >
+            <Border Canvas.Left="20" Canvas.Top="20" BorderBrush="Gainsboro" BorderThickness="2">
+                <Button  Content="Назад" Padding="10" x:Name="Cancel"/>
+            </Border>
+        </Canvas>
+        <Label Content="Kart Skills 2017" FontSize="36" 
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+               Background="LightGray"/>
+        <Label Content="Москва, Россия 20 июня 2017" Background="LightGray" 
+               FontSize="24" HorizontalContentAlignment="Center"/>
+
+        <Label Content="Информация о Kart Skills 2017" FontSize="24" 
+               HorizontalContentAlignment="Center" Margin="0,20,0,0"/>
+
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Image Grid.Row="0" Grid.Column="0" x:Name="Map"/>
+
+            <Label Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" x:Name="NOpisMap"/>
+
+        </Grid>
+
+        <Label Content="До начала события 0 лет, 8 месяцев, 5 дней, 13 минут и 18 секунд"
+               Background="LightGray" HorizontalContentAlignment="Center" FontSize="20"/>
+
+    </StackPanel>
+</Page>

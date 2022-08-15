@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSRKart", "WSRKart\WSRKart.csproj", "{2492D752-6152-471F-9CE6-27DD0FB923CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2492D752-6152-471F-9CE6-27DD0FB923CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2492D752-6152-471F-9CE6-27DD0FB923CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2492D752-6152-471F-9CE6-27DD0FB923CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2492D752-6152-471F-9CE6-27DD0FB923CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD032636-E6FF-4ABD-B807-5412121233F7}
+	EndGlobalSection
+EndGlobal

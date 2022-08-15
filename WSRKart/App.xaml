@@ -1,0 +1,16 @@
+﻿<Application x:Class="WSRKart.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WSRKart"
+             StartupUri="MainPage.xaml"
+             DispatcherUnhandledException="App_DispatcherUnhandledException">
+    <Application.Resources>
+        <Image x:Key="ImgDengi" Source="Images/Dengi.png"/>
+        <Image x:Key="Informatsia" Source="Images/Informatsia.png"/>
+        <Image x:Key="Klyuch" Source="Images/Klyuch.png"/>
+        <Image x:Key="Shlem" Source="Images/Shlem.png"/>
+        <Image x:Key="Oil" Source="Images/Oil.png"/>
+        <Image x:Key="Ql" Source="Images/QL.png"/>
+        <Image x:Key="Sctfl" Source="Images/Sctfl.png"/>
+    </Application.Resources>
+</Application>

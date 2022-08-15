@@ -1,0 +1,58 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace WSRKart
+{
+    /// <summary>
+    /// Логика взаимодействия для AdminMenu.xaml
+    /// </summary>
+    public partial class AdminMenu : Page
+    {
+        public AdminMenu()
+        {
+            InitializeComponent();
+        }
+
+        private void OnLogout(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MenuRacer());
+        }
+
+        private void OnPolz(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NVolonter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OnVolonter(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OnInvetar(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OnOrg(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
+}
