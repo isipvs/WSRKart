@@ -32,14 +32,16 @@
 
 
         <Label Grid.Row="0" Grid.Column="0" Content="Email:" VerticalAlignment="Center"
-               HorizontalAlignment="Right" FontSize="16" Margin="5"/>
+               HorizontalAlignment="Right" FontSize="16" Margin="5" x:Name="lbEmail"/>
+        
         <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" Margin="5"
-                 VerticalAlignment="Center" FontSize="16" x:Name="Email"/>
+                 VerticalAlignment="Center" FontSize="16" x:Name="Email" AutomationProperties.LabeledBy="{Binding ElementName=lbEmail}"/>
 
         <Label Grid.Row="1" Grid.Column="0" Content="Password:" VerticalAlignment="Center"
-               HorizontalAlignment="Right" FontSize="16" Margin="5"/>
+               HorizontalAlignment="Right" FontSize="16" Margin="5" x:Name="lbPassword"/>
+        
         <PasswordBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Margin="5"
-                 VerticalAlignment="Center" FontSize="16" x:Name="Password"/>
+                 VerticalAlignment="Center" FontSize="16" x:Name="Password" AutomationProperties.LabeledBy="{Binding ElementName=lbPassword}"/>
 
         <Button Grid.Row="3" Grid.Column="1" Content="Login" HorizontalAlignment="Left" 
                  VerticalAlignment="Center" x:Name="Login" Margin="20, 5, 5, 5" Click="OnLogin" Width="80"/>

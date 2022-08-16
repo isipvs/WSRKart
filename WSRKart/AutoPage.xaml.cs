@@ -36,6 +36,9 @@ namespace WSRKart
         {
             try
             {
+                UITools.ChekReq(Email);
+                UITools.ChekReq(Password);
+
                 User_Adapter ua = new User_Adapter();
 
                 SqlCommand sqlSelect = new SqlCommand();
@@ -67,7 +70,7 @@ namespace WSRKart
                 }
 
                 if (userId == 0)
-                    throw new Exception("Не верный лоигн или пароль");
+                    throw new Exception("Не верный логин или пароль");
 
                 App.Current.Properties["ID_User" ] = userId;
                 App.Current.Properties["ID_Role" ] = roleId;

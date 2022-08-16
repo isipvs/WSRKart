@@ -52,6 +52,9 @@ namespace WSRKart
 
         private void OnLogout(object sender, RoutedEventArgs e)
         {
+            App.Current.Properties.Remove("ID_Racer");
+            App.Current.Properties.Remove("ID_User" );
+
             NavigationService.Navigate(new MainPage());
         }
     }
