@@ -47,7 +47,7 @@ namespace WSRKart
 
         private void OnСontact_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Телефон: +7 999 999 99 99 \nEmail: yugkyug@kartskills.org ", null, MessageBoxButton.OK);
+            MessageBox.Show("Телефон: +7 999 999 99 99 \nEmail: yugkyug@kartskills.org ", "Контакты", MessageBoxButton.OK);
         }
 
         private void OnLogout(object sender, RoutedEventArgs e)

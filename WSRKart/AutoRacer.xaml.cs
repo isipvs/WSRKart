@@ -49,7 +49,7 @@ namespace WSRKart
             country.ItemsSource = dataSet.Country.DefaultView;
             country.DisplayMemberPath = "Country_Name";
             country.SelectedValuePath = "ID_Country";
-            country.SelectedIndex = 0;
+            country.SelectedIndex = 77;
 
 
             if (doEdit)
@@ -105,7 +105,7 @@ namespace WSRKart
                         (string)country.SelectedValue
                         );
 
-                    MessageBox.Show("Успешное обновление", null, MessageBoxButton.OK);
+                    MessageBox.Show("Успешное обновление", "Редактирование", MessageBoxButton.OK);
 
                     NavigationService.GoBack();
                 }
@@ -127,7 +127,7 @@ namespace WSRKart
                     App.Current.Properties["ID_User"] = ID_User;
                     App.Current.Properties["ID_Role"] = 'R';
 
-                    MessageBox.Show("Успешная регистрация", null, MessageBoxButton.OK);
+                    MessageBox.Show("Успешная регистрация", "Регситрация", MessageBoxButton.OK);
                     NavigationService.Navigate(new RegRace());
                 }
 
