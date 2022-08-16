@@ -13,9 +13,7 @@
       FontSize="18">
 
     <StackPanel>
-        <Label Content="Kart Skills 2017" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="LightGray"/>
-
-        <Label Content="Москва, Россия 20 июня 2017" Background="LightGray" FontSize="24" HorizontalContentAlignment="Center"/>
+        
         <Label Content="Спасибо за спонсорскую поддержку!" FontSize="20" HorizontalContentAlignment="Center" Margin="0,20,0,0"/>
 
         <Label Content="" x:Name="NameSponsor"/>
@@ -25,8 +23,6 @@
         <Button Content="Назад" HorizontalAlignment="Center" 
                 Padding="5,5,5,5" x:Name="NCancel" Click="Cancel" />
 
-        <Label Content="До начала события 0 лет, 8 месяцев, 5 дней, 13 минут и 18 секунд"
-               Background="LightGray" HorizontalContentAlignment="Center" FontSize="20"/>
         
     </StackPanel>
 </Page>

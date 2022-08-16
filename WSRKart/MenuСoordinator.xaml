@@ -10,38 +10,20 @@
       Background="White"
       ShowsNavigationUI="False"
       FontSize="18">
-    <StackPanel>
-        <Canvas Panel.ZIndex="1" >
-            <Border Canvas.Right="30" Canvas.Top="20" BorderBrush="Gainsboro" BorderThickness="2">
-                <Button  Content="Logout" Padding="5" Click="OnLogout"/>
-            </Border>
-        </Canvas>
-        <Label Content="Kart Skills 2017" FontSize="36" 
-               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
-               Background="LightGray"/>
-        <Label Content="Москва, Россия 20 июня 2017" Background="LightGray" 
-               FontSize="24" HorizontalContentAlignment="Center"/>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
 
-        <Label Content="Меню координатора" FontSize="24" 
-               HorizontalContentAlignment="Center" Margin="0,20,0,0"/>
-
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-            </Grid.RowDefinitions>
-
-            <Button Grid.Row="0" Grid.Column="0" Content="Гонщики" x:Name="NRacers" Click="OnRacerc"
+        <Button Grid.Row="0" Grid.Column="0" Content="Гонщики" x:Name="NRacers" Click="OnRacerc"
                     HorizontalAlignment="Center" Margin="5" Width="100"/>
 
-            <Button Grid.Row="0" Grid.Column="1" Content="Спонсоры" x:Name="NSponsor" Click="OnSponsor"
+        <Button Grid.Row="0" Grid.Column="1" Content="Спонсоры" x:Name="NSponsor" Click="OnSponsor"
                     HorizontalAlignment="Center" Margin="5" Width="100"/>
 
-        </Grid>
-        <Label Content="До начала события 0 лет, 8 месяцев, 5 дней, 13 минут и 18 секунд"
-               Background="LightGray" HorizontalContentAlignment="Center" FontSize="20"/>
-    </StackPanel>
+    </Grid>
 </Page>

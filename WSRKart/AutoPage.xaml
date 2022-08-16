@@ -11,25 +11,17 @@
       ShowsNavigationUI="False"
       FontSize="18">
 
-    <StackPanel>
-        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
-               Content="Kart Skills 2017" Background="LightGray" FontSize="36"
-               FontWeight="Normal" HorizontalContentAlignment="Center"/>
+    
 
-        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"
-               Content="Москва, Россия 20 июня 2017" Background="LightGray" FontSize="24"
-               FontWeight="Normal" HorizontalContentAlignment="Center"/>
+    <Grid>
 
+        
 
-        <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
-               Content="Форма авторизации" HorizontalAlignment="Center"
-               VerticalAlignment="Center" />
-        <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -37,7 +29,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        
+
 
         <Label Grid.Row="0" Grid.Column="0" Content="Email:" VerticalAlignment="Center"
                HorizontalAlignment="Right" FontSize="16" Margin="5"/>
@@ -56,8 +48,4 @@
                  VerticalAlignment="Center" x:Name="Cancel" Margin="5, 5, 20, 5" Click="OnCancel" Width="80"/>
 
     </Grid>
-        <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4"
-               Content="До начала события 0 лет, 8 месяцев, 5 дней, 13 минут и 18 секунд"
-               Background="LightGray" HorizontalContentAlignment="Center" FontSize="20"/>
-    </StackPanel>
 </Page>

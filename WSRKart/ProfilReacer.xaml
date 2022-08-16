@@ -11,90 +11,82 @@
       ShowsNavigationUI="False"
       FontSize="18">
 
-    <StackPanel>
-        <Label Content="Kart Skills 2017" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="LightGray"/>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
-        <Label Content="Москва, Россия 20 июня 2017" Background="LightGray" FontSize="24" HorizontalContentAlignment="Center"/>
-        <Label Content="Управление гонщиком" FontSize="20" HorizontalContentAlignment="Center" Margin="0,20,0,0"/>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-
-            <Label Grid.Row="0" Grid.Column="0" Content="Email: " 
+        <Label Grid.Row="0" Grid.Column="0" Content="Email: " 
                    HorizontalAlignment="Right" Margin="5"/>
-            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="NEmail"
+        <TextBlock Grid.Row="0" Grid.Column="1" x:Name="NEmail"
                        Margin="5" HorizontalAlignment="Left"/>
 
-            <Label Grid.Row="1" Grid.Column="0" Content="Имя: " 
+        <Label Grid.Row="1" Grid.Column="0" Content="Имя: " 
                    HorizontalAlignment="Right" Margin="5"/>
-            <TextBlock Grid.Row="1" Grid.Column="1" x:Name="NF_Name"
+        <TextBlock Grid.Row="1" Grid.Column="1" x:Name="NF_Name"
                        Margin="5" HorizontalAlignment="Left"/>
 
-            <Label Grid.Row="2" Grid.Column="0" Content="Фамилия: " 
+        <Label Grid.Row="2" Grid.Column="0" Content="Фамилия: " 
                    HorizontalAlignment="Right" Margin="5"/>
-            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="NL_Name"
+        <TextBlock Grid.Row="2" Grid.Column="1" x:Name="NL_Name"
                        Margin="5" HorizontalAlignment="Left"/>
 
-            <Label Grid.Row="3" Grid.Column="0" Content="Пол: " 
+        <Label Grid.Row="3" Grid.Column="0" Content="Пол: " 
                    HorizontalAlignment="Right" Margin="5"/>
-            <TextBlock Grid.Row="3" Grid.Column="1" x:Name="NGender"
+        <TextBlock Grid.Row="3" Grid.Column="1" x:Name="NGender"
                        Margin="5" HorizontalAlignment="Left"/>
 
-            <Label Grid.Row="4" Grid.Column="0" Content="Дата рождения: " 
+        <Label Grid.Row="4" Grid.Column="0" Content="Дата рождения: " 
                    HorizontalAlignment="Right" Margin="5"/>
-            <TextBlock Grid.Row="4" Grid.Column="1" x:Name="NDateOfBirth"
+        <TextBlock Grid.Row="4" Grid.Column="1" x:Name="NDateOfBirth"
                        Margin="5" HorizontalAlignment="Left"/>
 
-            <Label Grid.Row="5" Grid.Column="0" Content="Страна: " 
+        <Label Grid.Row="5" Grid.Column="0" Content="Страна: " 
                    HorizontalAlignment="Right" Margin="5"/>
-            <TextBlock Grid.Row="5" Grid.Column="1" x:Name="NCountry"
+        <TextBlock Grid.Row="5" Grid.Column="1" x:Name="NCountry"
                        Margin="5" HorizontalAlignment="Left"/>
 
-            <Label Grid.Row="6" Grid.Column="0" Content="Благотворительнось: " 
+        <Label Grid.Row="6" Grid.Column="0" Content="Благотворительнось: " 
                    HorizontalAlignment="Right" Margin="5"/>
-            <TextBlock Grid.Row="6" Grid.Column="1" x:Name="NCharity"
+        <TextBlock Grid.Row="6" Grid.Column="1" x:Name="NCharity"
                        Margin="5" HorizontalAlignment="Left"/>
 
-            <Label Grid.Row="7" Grid.Column="0" Content="Пожертвовано: " 
+        <Label Grid.Row="7" Grid.Column="0" Content="Пожертвовано: " 
                    HorizontalAlignment="Right" Margin="5"/>
-            <TextBlock Grid.Row="7" Grid.Column="1" x:Name="NDonated"
+        <TextBlock Grid.Row="7" Grid.Column="1" x:Name="NDonated"
                        Margin="5" HorizontalAlignment="Left"/>
 
-            <Label Grid.Row="8" Grid.Column="0" Content="Тип гонки: " 
+        <Label Grid.Row="8" Grid.Column="0" Content="Тип гонки: " 
                    HorizontalAlignment="Right" Margin="5"/>
-            <TextBlock Grid.Row="8" Grid.Column="1" x:Name="NTupeRace"
+        <TextBlock Grid.Row="8" Grid.Column="1" x:Name="NTupeRace"
                        Margin="5" HorizontalAlignment="Left"/>
 
-            <Image Grid.Row="0" Grid.RowSpan="7" Grid.Column="2" Margin="5" x:Name="NImages"/>
+        <Image Grid.Row="0" Grid.RowSpan="7" Grid.Column="2" Margin="5" x:Name="NImages"/>
 
-            <Label Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center"
+        <Label Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center"
                    Content="Регсистрационный&#x0a;            статус" Margin="5"/>
-            <Label Grid.Row="1" Grid.Column="3" x:Name="NСonfirmationPayment" Margin="5"/>
+        <Label Grid.Row="1" Grid.Column="3" x:Name="NСonfirmationPayment" Margin="5"/>
 
-            <Button Grid.Row="9" Grid.Column="3" Content="Редактирование&#x0a;     профиля "/>
+        <Button Grid.Row="9" Grid.Column="3" Content="Редактирование&#x0a;     профиля "/>
 
 
 
-        </Grid>
-        
-    </StackPanel>
+    </Grid>
 </Page>

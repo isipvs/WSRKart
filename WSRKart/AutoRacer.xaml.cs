@@ -70,7 +70,7 @@ namespace WSRKart
 
             if(edit)
             {
-                NPage.Content = "Редактирование профиля";
+                //NPage.Content = "Редактирование профиля";
                 NReg.Content = "Сохранить";
             }
 

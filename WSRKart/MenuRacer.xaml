@@ -10,51 +10,32 @@
       Background="White"
       ShowsNavigationUI="False"
       FontSize="20">
-    <StackPanel>
-        <Canvas Panel.ZIndex="1" >
-            <Border Canvas.Right="20" Canvas.Top="20" BorderBrush="Gainsboro" BorderThickness="2">
-                <Button  Content="Logout" Padding="10" Click="OnLogout"/>
-            </Border>
-        </Canvas>
-        <Label Content="Kart Skills 2017" FontSize="36" 
-               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
-               Background="LightGray"/>
-        <Label Content="Москва, Россия 20 июня 2017" Background="LightGray" 
-               FontSize="24" HorizontalContentAlignment="Center"/>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
-        <Label Content="Меню гонщика" FontSize="24" 
-               HorizontalContentAlignment="Center" Margin="0,20,0,0"/>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-
-            <Button Grid.Row="0" Grid.Column="0" Content="Регистрация на гонку" Click="OnRegRace_Click" 
+        <Button Grid.Row="0" Grid.Column="0" Content="Регистрация на гонку" Click="OnRegRace_Click" 
                     HorizontalAlignment="Center" Height="50" Margin="7" x:Name="NRegRace" Width="240"/>
 
-            <Button Grid.Row="0" Grid.Column="1" Content="Мои результаты" Click="OnResultRace_Click" 
+        <Button Grid.Row="0" Grid.Column="1" Content="Мои результаты" Click="OnResultRace_Click" 
                     HorizontalAlignment="Center" Height="50" Margin="7" x:Name="NResultRace" Width="240"/>
 
-            <Button Grid.Row="1" Grid.Column="0" Content="Редактирование профиля" Click="OnRegProfRace_Click"
+        <Button Grid.Row="1" Grid.Column="0" Content="Редактирование профиля" Click="OnRegProfRace_Click"
                     HorizontalAlignment="Center" Height="50" Margin="7" x:Name="NRegProfRace"/>
 
-            <Button Grid.Row="1" Grid.Column="1" Content="Мой спонсор" Click="OnRacerSponsor_Click"
+        <Button Grid.Row="1" Grid.Column="1" Content="Мой спонсор" Click="OnRacerSponsor_Click"
                     HorizontalAlignment="Center" Height="50" Margin="7" x:Name="NRacerSponsor" Width="240"/>
 
-            <Button Grid.Row="2" Grid.Column="0" Content="Контакты" Click="OnСontact_Click"
+        <Button Grid.Row="2" Grid.Column="0" Content="Контакты" Click="OnСontact_Click"
                     HorizontalAlignment="Center" Height="50" Margin="7" x:Name="NContactRace" Width="240"/>
 
-        </Grid>
-
-        <Label Content="До начала события 0 лет, 8 месяцев, 5 дней, 13 минут и 18 секунд"
-               Background="LightGray" HorizontalContentAlignment="Center" FontSize="20"/>
-    </StackPanel>
+    </Grid>
 </Page>

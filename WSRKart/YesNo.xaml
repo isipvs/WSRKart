@@ -11,16 +11,7 @@
       ShowsNavigationUI="False"
       FontSize="20">
     <StackPanel>
-        <Canvas Panel.ZIndex="1" >
-            <Border Canvas.Left="20" Canvas.Top="20" BorderBrush="Gainsboro" BorderThickness="2">
-                <Button  Content="Нет" Padding="10" Click="Back"/>
-            </Border>
-        </Canvas>
-        <Label Content="Kart Skills 2017" FontSize="36" 
-               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
-               Background="LightGray"/>
-        <Label Content="Москва, Россия 20 июня 2017" Background="LightGray" 
-               FontSize="24" HorizontalContentAlignment="Center"/>
+        
 
         <Label Content="Участвовали ранее ?" FontSize="24" 
                HorizontalContentAlignment="Center" Margin="0,20,0,0"/>
@@ -45,7 +36,6 @@
 
         </Grid>
 
-        <Label Content="До начала события 0 лет, 8 месяцев, 5 дней, 13 минут и 18 секунд"
-               Background="LightGray" HorizontalContentAlignment="Center" FontSize="20"/>
+        
     </StackPanel>
 </Page>

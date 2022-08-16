@@ -10,26 +10,7 @@
       Background="White"
       ShowsNavigationUI="False"
       FontSize="18">
-    <StackPanel>
-        <Canvas Panel.ZIndex="1" >
-            <Border Canvas.Left="30" Canvas.Top="20" BorderBrush="Gainsboro" BorderThickness="2">
-                <Button  Content="Назад" Padding="10"/>
-            </Border>
-        </Canvas>
-        <Label Content="Kart Skills 2017" FontSize="36" HorizontalContentAlignment="Center"
-               VerticalContentAlignment="Center" Background="LightGray"/>
-        <Label Content="Москва, Россия 20 июня 2017" Background="LightGray"
-               FontSize="24" HorizontalContentAlignment="Center"/>
-
-        <TextBlock>
+    <TextBlock>
             <Image x:Name="Map"/>
-        </TextBlock>
-
-        <Canvas Panel.ZIndex="2" >
-            <Border Canvas.Top="280" BorderBrush="Gainsboro" BorderThickness="2">
-                <Label Content="До начала события 0 лет, 8 месяцев, 5 дней, 13 минут и 18 секунд"
-               Background="LightGray" HorizontalContentAlignment="Center" FontSize="20"/>
-            </Border>
-        </Canvas>
-    </StackPanel>
+    </TextBlock>
 </Page>

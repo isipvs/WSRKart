@@ -9,81 +9,67 @@
       Background="White"
       ShowsNavigationUI="False"
       FontSize="18">
-    <StackPanel>
-        <Canvas Panel.ZIndex="1" >
-            <Border Canvas.Left="30" Canvas.Top="20" BorderBrush="Gainsboro" BorderThickness="2">
-                <Button  Content="Назад" Padding="10" Click="Back"/>
-            </Border>
-        </Canvas>
-        <Label Content="Kart Skills 2017" Background="LightGray" FontSize="36"
-               HorizontalContentAlignment="Center"/>
-        <Label Content="Москва, Россия 20 июня 2017" Background="LightGray" FontSize="24" HorizontalContentAlignment="Center"/>
-        <Label Content="Регистрация гонщиков" FontSize="24" HorizontalContentAlignment="Center" x:Name="NPage"/>
 
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>    
-                <ColumnDefinition Width="200" />
-                <ColumnDefinition Width="20"/>
-                <ColumnDefinition />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
 
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
 
-            <Label x:Name="lbEmail" Grid.Column="0" Content="Email:" HorizontalAlignment="Right" />
-            <TextBox x:Name="email" Grid.Column="1" Margin="5,5,5,5" Grid.ColumnSpan="3" AutomationProperties.LabeledBy="{Binding ElementName=lbEmail}" />
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-            <Label x:Name="lbPswd" Grid.Row="1" Grid.Column="0" Content="Пароль:" HorizontalAlignment="Right"/>
-            <PasswordBox x:Name="pswd"  Grid.Column="1" Grid.Row="1" Margin="5,5,5,5" AutomationProperties.LabeledBy="{Binding ElementName=lbPswd}"/>
-            
-            <Label x:Name="lbPswd2" Grid.Row="2" Grid.Column="0" Content="Повторите пароль:" HorizontalAlignment="Right"/>
-            <PasswordBox x:Name="pswd2" Grid.Column="1" Grid.Row="2" Margin="5,5,5,5" AutomationProperties.LabeledBy="{Binding ElementName=lbPswd2}"/>
+        <Label x:Name="lbEmail" Grid.Column="0" Content="Email:" HorizontalAlignment="Right" />
+        <TextBox x:Name="email" Grid.Column="1" Margin="5,5,5,5" Grid.ColumnSpan="3" AutomationProperties.LabeledBy="{Binding ElementName=lbEmail}" />
 
-            <Label x:Name="lbF_name" Grid.Row="3" Grid.Column="0" Content="Имя:" HorizontalAlignment="Right"/>
-            <TextBox x:Name="f_name" Grid.Column="1" Grid.Row="3" Margin="5,5,5,5" AutomationProperties.LabeledBy="{Binding ElementName=lbF_name}"/>
-            <Label x:Name="lbL_name" Grid.Row="4" Grid.Column="0" Content="Фамилия:" HorizontalAlignment="Right"/>
-            <TextBox Grid.Row="4" x:Name="l_name" Grid.Column="1" Margin="5,5,5,5" HorizontalAlignment="Stretch" AutomationProperties.LabeledBy="{Binding ElementName=lbL_name}"/>
+        <Label x:Name="lbPswd" Grid.Row="1" Grid.Column="0" Content="Пароль:" HorizontalAlignment="Right"/>
+        <PasswordBox x:Name="pswd"  Grid.Column="1" Grid.Row="1" Margin="5,5,5,5" AutomationProperties.LabeledBy="{Binding ElementName=lbPswd}"/>
 
-            <Label x:Name="lbGender" Grid.Row="5" Grid.Column="0" Content="Пол:" HorizontalAlignment="Right"/>
-            <ComboBox Grid.Row="5" x:Name="genderList" Grid.Column="1" Margin="5,5,5,5" AutomationProperties.LabeledBy="{Binding ElementName=lbGender}"/>
+        <Label x:Name="lbPswd2" Grid.Row="2" Grid.Column="0" Content="Повторите пароль:" HorizontalAlignment="Right"/>
+        <PasswordBox x:Name="pswd2" Grid.Column="1" Grid.Row="2" Margin="5,5,5,5" AutomationProperties.LabeledBy="{Binding ElementName=lbPswd2}"/>
 
-            <Border Grid.Column="4" Grid.RowSpan="3" Margin="5,5,5,5" Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="1" CornerRadius="5">
-                <Image x:Name="Img" Stretch="Uniform" StretchDirection="Both" Height="60" Width="200" />
-            </Border>
-            <Label x:Name="lbBfile" Grid.Row="2" Grid.Column="3" Content="Фото файл:"/>
-            <TextBox Grid.Row="3" Grid.Column="3" Margin="5,5,5,5" x:Name="FileName" AutomationProperties.LabeledBy="{Binding ElementName=lbBfile}" />
-            <Button Grid.Row="3" x:Name="bfile" Grid.Column="4" Margin="5,5,5,5" Content="Просмотр" Click="OnShowImg"/>
+        <Label x:Name="lbF_name" Grid.Row="3" Grid.Column="0" Content="Имя:" HorizontalAlignment="Right"/>
+        <TextBox x:Name="f_name" Grid.Column="1" Grid.Row="3" Margin="5,5,5,5" AutomationProperties.LabeledBy="{Binding ElementName=lbF_name}"/>
+        <Label x:Name="lbL_name" Grid.Row="4" Grid.Column="0" Content="Фамилия:" HorizontalAlignment="Right"/>
+        <TextBox Grid.Row="4" x:Name="l_name" Grid.Column="1" Margin="5,5,5,5" HorizontalAlignment="Stretch" AutomationProperties.LabeledBy="{Binding ElementName=lbL_name}"/>
 
-            <Label x:Name="lbDrozd" Grid.Row="4" Grid.Column="3" Content="Дата рождения:" HorizontalAlignment="Right"/>
-            <DatePicker Grid.Row="4" x:Name="drozd" Grid.Column="4" Margin="5,5,5,5" AutomationProperties.LabeledBy="{Binding ElementName=lbDrozd}"/>
+        <Label x:Name="lbGender" Grid.Row="5" Grid.Column="0" Content="Пол:" HorizontalAlignment="Right"/>
+        <ComboBox Grid.Row="5" x:Name="genderList" Grid.Column="1" Margin="5,5,5,5" AutomationProperties.LabeledBy="{Binding ElementName=lbGender}"/>
 
-            <Label x:Name="lbCountry" Grid.Row="5" Grid.Column="3" Content="Страна:" HorizontalAlignment="Right"/>
-            <ComboBox Grid.Row="5" x:Name="country" Grid.Column="4" Margin="5,5,5,5" AutomationProperties.LabeledBy="{Binding ElementName=lbCountry}"/>
+        <Border Grid.Column="4" Grid.RowSpan="3" Margin="5,5,5,5" Background="GhostWhite" BorderBrush="Gainsboro" BorderThickness="1" CornerRadius="5">
+            <Image x:Name="Img" Stretch="Uniform" StretchDirection="Both" Height="60" Width="200" />
+        </Border>
+        <Label x:Name="lbBfile" Grid.Row="2" Grid.Column="3" Content="Фото файл:"/>
+        <TextBox Grid.Row="3" Grid.Column="3" Margin="5,5,5,5" x:Name="FileName" AutomationProperties.LabeledBy="{Binding ElementName=lbBfile}" />
+        <Button Grid.Row="3" x:Name="bfile" Grid.Column="4" Margin="5,5,5,5" Content="Просмотр" Click="OnShowImg"/>
+
+        <Label x:Name="lbDrozd" Grid.Row="4" Grid.Column="3" Content="Дата рождения:" HorizontalAlignment="Right"/>
+        <DatePicker Grid.Row="4" x:Name="drozd" Grid.Column="4" Margin="5,5,5,5" AutomationProperties.LabeledBy="{Binding ElementName=lbDrozd}"/>
+
+        <Label x:Name="lbCountry" Grid.Row="5" Grid.Column="3" Content="Страна:" HorizontalAlignment="Right"/>
+        <ComboBox Grid.Row="5" x:Name="country" Grid.Column="4" Margin="5,5,5,5" AutomationProperties.LabeledBy="{Binding ElementName=lbCountry}"/>
 
 
 
 
-            <Button Grid.Row="6" Grid.Column="1" x:Name="NReg" 
+        <Button Grid.Row="6" Grid.Column="1" x:Name="NReg" 
                     Margin="5,5,5,5" Content="Регистрация" Click="OnReg_Click" />
 
 
 
-            <Button Grid.Row="6" Grid.Column="3" Content="Отмена" x:Name="NCancel"  
+        <Button Grid.Row="6" Grid.Column="3" Content="Отмена" x:Name="NCancel"  
                     Margin="5,5,5,5" Click="Cancel" />
 
-        </Grid>
-        <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4"
-               Content="До начала события 0 лет, 8 месяцев, 5 дней, 13 минут и 18 секунд"
-               Background="LightGray" HorizontalContentAlignment="Center" FontSize="20"/>
-
-    </StackPanel>
+    </Grid>
 </Page>

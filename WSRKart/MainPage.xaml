@@ -11,11 +11,8 @@
       Background="White"
       ShowsNavigationUI="False"
       FontSize="18">
-    <StackPanel>
-        <Label Content="Kart Skills 2017" Background="LightGray" FontSize="36"
-               HorizontalContentAlignment="Center"/>
-        <Label Content="Москва, Россия 20 июня 2017" Background="LightGray" FontSize="24" HorizontalContentAlignment="Center"/>
-        <Grid>
+    
+    <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition  />
@@ -62,6 +59,4 @@
             <Label Grid.Row="1" Grid.Column="3" Content="Вход в систему" HorizontalContentAlignment="Center"/>
 
         </Grid>
-        <Label  Content="До начала события 0 лет, 8 месяцев, 5 дней, 13 минут и 18 секунд" Background="LightGray" HorizontalContentAlignment="Center" FontSize="20"/>
-    </StackPanel>
 </Page>

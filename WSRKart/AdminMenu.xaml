@@ -10,47 +10,28 @@
       Background="White"
       ShowsNavigationUI="False"
       FontSize="18">
-    <StackPanel>
-        <Canvas Panel.ZIndex="1" >
-            <Border Canvas.Right="30" Canvas.Top="20" BorderBrush="Gainsboro" BorderThickness="2">
-                <Button  Content="Logout" Padding="10" Click="OnLogout"/>
-            </Border>
-        </Canvas>
-        <Label Content="Kart Skills 2017" FontSize="36" 
-               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
-               Background="LightGray"/>
-        
-        <Label Content="Москва, Россия 20 июня 2017" Background="LightGray" 
-               FontSize="24" HorizontalContentAlignment="Center"/>
 
-        <Label Content="Меню администратора" FontSize="24" 
-               HorizontalContentAlignment="Center" Margin="0,20,0,0"/>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-
-            <Button Grid.Row="0" Grid.Column="0" Content="Пользователи" HorizontalAlignment="Center"
+        <Button Grid.Row="0" Grid.Column="0" Content="Пользователи" HorizontalAlignment="Center"
                     Margin="10" Padding="15" x:Name="NPolz" Click="OnPolz" Width="166"/>
-            
-            <Button Grid.Row="0" Grid.Column="1" Content="Волонтеры" HorizontalAlignment="Center"
+
+        <Button Grid.Row="0" Grid.Column="1" Content="Волонтеры" HorizontalAlignment="Center"
                     Margin="10" Padding="15" x:Name="NVolonter" Click="OnVolonter"/>
 
-            <Button Grid.Row="1" Grid.Column="0" Content="Благотворительные&#x0a;     организации" HorizontalAlignment="Center"
+        <Button Grid.Row="1" Grid.Column="0" Content="Благотворительные&#x0a;     организации" HorizontalAlignment="Center"
                     Margin="10" x:Name="NOrg" Click="OnOrg"/>
 
-            <Button Grid.Row="1" Grid.Column="1" Content="Инвентарь" HorizontalAlignment="Center"
+        <Button Grid.Row="1" Grid.Column="1" Content="Инвентарь" HorizontalAlignment="Center"
                     Margin="10" Padding="15" x:Name="NInvetar" Click="OnInvetar"/>
 
-        </Grid>
-        
-        <Label Content="До начала события 0 лет, 8 месяцев, 5 дней, 13 минут и 18 секунд"
-               Background="LightGray" HorizontalContentAlignment="Center" FontSize="20"/>
-    </StackPanel>
+    </Grid>
 </Page>
