@@ -1,20 +1,11 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Automation;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WSRKart.DataSetTableAdapters;
 
 namespace WSRKart
@@ -91,9 +82,7 @@ namespace WSRKart
                 CheckRequiredFields();
                 CheckDate();
                 CheckPairPassword(pswd, pswd2);
-                //(string email, string Last_Name, string First_Name, string Password, string Gender,
-                //global::System.Nullable<global::System.DateTime> DateOfBirth, global::System.Nullable<int> ID_Country,
-                //ref global::System.Nullable<int> ID_User, ref global::System.Nullable<int> ID_Racer)
+                CheckEmail();
 
                 if (doEdit)
                 {
@@ -174,19 +163,38 @@ namespace WSRKart
             catch (Exception ex) { MessageBox.Show("Ошибка: " + ex.Message, null, MessageBoxButton.OK, MessageBoxImage.Error); }
         }
 
-        
+
+        static string[] EmailServers = { "@yandex.ru","@mail.ru","@gmail.ru","@inbox.ru","@ok.ru","@rambler.ru","@yahoo.ru","@mpt.ru","@yandex.com","@mail.com","@gmail.com","@inbox.com","@ok.com",
+                                         "@rambler.com","@yahoo.com","@mpt.com"};
+        private void CheckEmail()
+        {
+            string addr = email.Text;
+
+            if( !new EmailAddressAttribute().IsValid(addr) )
+                throw new Exception("Не корректный email");
 
 
+            bool ok = false;
+            foreach (string s in EmailServers)
+            {
+                ok = addr.EndsWith(s);
+                if (ok)
+                    break;
+            }
+
+
+            if (!ok)
+                throw new Exception("Не корректное имя сервера в email");
+
+
+            //MailAddress ma = new MailAddress(addr);
+        }
 
         private void CheckRequiredFields()
         {
             Control[] cl = new Control[] { email, l_name, f_name, pswd, pswd2, genderList, drozd, country };
-
             foreach (Control c in cl)
-            {
                 UITools.ChekReq(c);
-            }
-            
         }
 
         private void CheckPairPassword(PasswordBox pb1, PasswordBox pb2)
