@@ -62,7 +62,10 @@ namespace WSRKart
                         {
                             userId = reader.GetInt32(0);
                             roleId = reader.GetString(1)[0];
-                            racerId= reader.GetInt32(2);
+                            if (reader.IsDBNull(2))
+                                racerId = 0;
+                            else
+                                racerId = reader.GetInt32(2);
                         }
                     }
 
@@ -78,9 +81,12 @@ namespace WSRKart
 
                 if ( roleId == 'R' )
                     NavigationService.Navigate(new MenuRacer());
+                else if (roleId == 'A')
+                    NavigationService.Navigate(new MenuAdmin());
+
             }
             catch (Exception ex) {
-                MessageBox.Show("Ошибка: " + ex.Message, null, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Ошибка: " + ex.Message, "Логин", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

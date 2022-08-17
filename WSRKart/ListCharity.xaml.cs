@@ -16,26 +16,13 @@ using System.Windows.Shapes;
 namespace WSRKart
 {
     /// <summary>
-    /// Логика взаимодействия для Master.xaml
+    /// Логика взаимодействия для ListCharity.xaml
     /// </summary>
-    public partial class MasterPage : Page
+    public partial class ListCharity : Page
     {
-        public MasterPage()
+        public ListCharity()
         {
             InitializeComponent();
-        }
-
-        private void OnBack(object sender, RoutedEventArgs e)
-        {
-            if (NavigationService.CanGoBack)
-            {
-                NavigationService.GoBack();
-            }
-        }
-
-        private void OnLogout(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new MasterPage());
         }
     }
 }

@@ -31,12 +31,12 @@ namespace WSRKart
          */
 
         DataSet dataSet = new DataSet();
-        v_prev_result_Adapter adapter;
+        Prev_Result_Adapter adapter;
 
         public ResultLastRace()
         {
             InitializeComponent();
-            adapter = new v_prev_result_Adapter();
+            adapter = new Prev_Result_Adapter();
             ResultGrid.ItemsSource = dataSet.v_prev_result.DefaultView;
             ResultGrid.SelectionMode = DataGridSelectionMode.Single;
             ResultGrid.SelectedValuePath = "BidNumber";

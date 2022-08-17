@@ -21,8 +21,8 @@
                 <RowDefinition Height="70"/>
             </Grid.RowDefinitions>
 
-            <Button Grid.Row="0" Grid.Column="0" Content="Пользователи" x:Name="NUser" Click="OnUser"
-                    HorizontalAlignment="Center" Margin="5" Width="220"/>
+        <Button Grid.Row="0" Grid.Column="0" Content="Пользователи" x:Name="NPolzList" 
+                    HorizontalAlignment="Center" Margin="5" Width="220" Click="OnPolzList"/>
 
             <Button Grid.Row="0" Grid.Column="1" Content="Волонтёры" x:Name="NVolunteer" Click="OnVolunteer"
                     HorizontalAlignment="Center" Margin="5" Width="220"/>

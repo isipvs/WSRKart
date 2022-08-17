@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddUser.xaml.cs">
+      <DependentUpon>AddUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminMenu.xaml.cs">
       <DependentUpon>AdminMenu.xaml</DependentUpon>
     </Compile>
@@ -80,6 +83,9 @@
     <Compile Include="InfoEvent.xaml.cs">
       <DependentUpon>InfoEvent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ListCharity.xaml.cs">
+      <DependentUpon>ListCharity.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ListFond.xaml.cs">
       <DependentUpon>ListFond.xaml</DependentUpon>
     </Compile>
@@ -98,11 +104,11 @@
     <Compile Include="MenuRacer.xaml.cs">
       <DependentUpon>MenuRacer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PolzList.xaml.cs">
+      <DependentUpon>PolzList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ProfilReacer.xaml.cs">
       <DependentUpon>ProfilReacer.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="RacerList.xaml.cs">
-      <DependentUpon>RacerList.xaml</DependentUpon>
     </Compile>
     <Compile Include="RacerResult.xaml.cs">
       <DependentUpon>RacerResult.xaml</DependentUpon>
@@ -183,6 +189,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="AddUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AdminMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -196,6 +206,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="InfoEvent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListCharity.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -227,11 +241,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ProfilReacer.xaml">
+    <Page Include="PolzList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RacerList.xaml">
+    <Page Include="ProfilReacer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

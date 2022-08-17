@@ -16,16 +16,16 @@ using System.Windows.Shapes;
 namespace WSRKart
 {
     /// <summary>
-    /// Логика взаимодействия для RacerList.xaml
+    /// Логика взаимодействия для AddUser.xaml
     /// </summary>
-    public partial class RacerList : Page
+    public partial class AddUser : Page
     {
-        public RacerList()
+        public AddUser()
         {
             InitializeComponent();
         }
 
-        private void OnRefresh(object sender, RoutedEventArgs e)
+        private void OnSave(object sender, RoutedEventArgs e)
         {
 
         }
@@ -34,12 +34,5 @@ namespace WSRKart
         {
 
         }
-
-        private void OnLogout(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
-
-
 }

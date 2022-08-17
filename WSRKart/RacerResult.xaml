@@ -11,27 +11,45 @@
       ShowsNavigationUI="False"
       FontSize="18">
     <StackPanel>
-        
-        <Label Content="Результаты предыдущих гонок" 
+
+        <Label Content="Мои результаты" 
            FontSize="24" HorizontalContentAlignment="Center"/>
 
-        <Grid>
+        <Grid >
 
             <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="17*"/>
+                <RowDefinition Height="47*"/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" x:Name="NGender"/>
+            <Label Grid.Row="0" Grid.Column="0" Content="Пол: " HorizontalAlignment="Right"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="NGender" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
-            <Label Grid.Row="0" Grid.Column="0" x:Name="NAgeCategory"/>
+            <Label Grid.Row="0" Grid.Column="2" Content="Возрастная категория: " HorizontalAlignment="Right"/>
+            <TextBlock Grid.Row="0" Grid.Column="3" x:Name="NAgeCategory" 
+                       HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="7" x:Name="ResultGrid" 
+                      AutoGenerateColumns="False" Margin="20,40,20,20" IsReadOnly="True" Height="250">
+                <DataGrid.Columns>
+                    <!-- Binding="{Binding pos}"  -->
+                    <DataGridTextColumn Header="Событие" Binding="{Binding Event_Name}"/>
+                    <DataGridTextColumn Header="Вид гонки" Binding="{Binding ID_EventType}"/>
+                    <DataGridTextColumn Header="Время" Binding="{Binding RaceTime}"/>
+                    <DataGridTextColumn Header="Общее место" Binding="{Binding pos}"/>
+                    <DataGridTextColumn Header="Место в категории" Binding="{Binding pos_cat}"/>
+                </DataGrid.Columns>
+            </DataGrid>
 
         </Grid>
-        <Button Content="Показать все результаты" HorizontalAlignment="Center" Margin="5"/>
+        <Button Content="Показать все результаты" HorizontalAlignment="Center" Margin="5" Click="OnResulLastRace"/>
     </StackPanel>
 </Page>

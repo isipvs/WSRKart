@@ -8,7 +8,8 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Sponsor"
       Background="White"
-      ShowsNavigationUI="False">
+      ShowsNavigationUI="False"
+      FontSize="18">
     <StackPanel>
 
         <Label Content="Регистрация гонщиков" FontSize="24" HorizontalContentAlignment="Center"/>
@@ -47,13 +48,16 @@
             <Label Grid.Row="5" Grid.Column="0" Content="Номер карты" HorizontalAlignment="Right"/>
             <TextBox x:Name="NumKart" Grid.Column="1" Grid.Row="5" Margin="5,5,5,5"/>
             <Label Grid.Row="6" Grid.Column="0" Content="Срок действия" HorizontalAlignment="Right"/>
-            <TextBox Grid.Row="6" x:Name="dayes" Grid.Column="1" Margin="5,5,5,5" Width="60" HorizontalAlignment="Left"/>
-            <TextBox Grid.Row="6" x:Name="years" Grid.Column="1" Margin="5,5,5,5" Width="80" HorizontalAlignment="Center" />
+            <TextBox Grid.Row="6" x:Name="dayes" Grid.Column="1" Margin="10" Width="40" HorizontalAlignment="Left"/>
+            <TextBox Grid.Row="6" x:Name="years" Grid.Column="1" Margin="10" Width="80" HorizontalAlignment="Center" />
 
             <Label Grid.Row="7" Grid.Column="0" Content="CVC" HorizontalAlignment="Right"/>
             <TextBox Grid.Row="7" x:Name="cvc" Grid.Column="1" Width="80" Margin="5,5,5,5" HorizontalAlignment="Left"/>
 
             <Label Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3" Content="Благотворительность"
+                       HorizontalAlignment="Center"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" x:Name="NCharity" 
                        HorizontalAlignment="Center"/>
 
             <Label Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" HorizontalAlignment="Center"
@@ -66,12 +70,13 @@
                            HorizontalAlignment="Center" Grid.RowSpan="2" VerticalAlignment="Center"
                            FontSize="36" x:Name="SummaPosh"/>
 
-            <Button Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" 
-                        Content="-" FontSize="26"  Margin="5" />
-            <Label Grid.Row="6" Grid.Column="3" x:Name="SummPosh" HorizontalAlignment="Right"
-                       Width="80" Content="0" HorizontalContentAlignment="Center"/>
-            <Button Grid.Row="6" x:Name="country" Grid.Column="4" Margin="5,5,5,5"
-                        HorizontalAlignment="Left" Content="+" FontSize="26"/>
+            <Button Grid.Row="6" Grid.Column="3" HorizontalAlignment="Center" 
+                        Content="-" Margin="5" Width="20" Height="25" />
+            <Label Grid.Row="6" Grid.Column="3" x:Name="SummPosh" HorizontalAlignment="Center"
+                   Width="80" Content="0" HorizontalContentAlignment="Center" Grid.ColumnSpan="2"
+                   VerticalAlignment="Center"/>
+            <Button Grid.Row="6" x:Name="country" Grid.Column="4" HorizontalAlignment="Center"
+                    Margin="5" Content="+" Width="20" Height="25"/>
 
             <Button Grid.Row="7" Grid.Column="3" Content="Заплатить" x:Name="bt" IsCancel="True" Margin="5,5,5,5" Width="80"/>
             <Button Grid.Row="7" Grid.Column="4" Content="Отмена" x:Name="btCancel" IsCancel="True" Margin="5,5,5,5" Width="80"/>

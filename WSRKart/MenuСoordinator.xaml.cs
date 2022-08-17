@@ -27,12 +27,12 @@ namespace WSRKart
 
         private void OnRacerc(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new RacerResult());
         }
 
         private void OnSponsor(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new SponsorList());
         }
 
         private void OnLogout(object sender, RoutedEventArgs e)

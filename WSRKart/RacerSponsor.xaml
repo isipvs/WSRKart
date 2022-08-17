@@ -15,6 +15,41 @@
         <Label Content="Мои спонсоры" 
            FontSize="24" HorizontalContentAlignment="Center"/>
         <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" TextAlignment="Center" Margin="10">
+                Наименование <LineBreak/>благотоворительных организаций
+            </TextBlock>
+
+            <Image Grid.Row="1" Grid.Column="0" x:Name="NLogoCharity" Margin="10"/>
+
+            <Label Grid.Row="2" Grid.Column="0" x:Name="Ndescription" Height="70"
+                   Margin="10"/>
+
+            <DataGrid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
+                      x:Name="SponsorGrid" AutoGenerateColumns="False"
+                      Margin="10" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Спонсор" Width="300"/>
+                    <DataGridTextColumn Header="Взнос"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Label Grid.Row="2" Grid.Column="1" Content="Всего" HorizontalAlignment="Right" 
+                   VerticalAlignment="Center" FontSize="20"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="2" Text="$ 0" HorizontalAlignment="Left"
+                       VerticalAlignment="Center" FontSize="20" Margin="20"/>
 
         </Grid>
     </StackPanel>

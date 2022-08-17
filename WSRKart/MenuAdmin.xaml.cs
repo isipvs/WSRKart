@@ -49,5 +49,10 @@ namespace WSRKart
         {
 
         }
+
+        private void OnPolzList(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PolzList());
+        }
     }
 }

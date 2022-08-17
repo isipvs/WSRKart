@@ -1,0 +1,103 @@
+﻿<Page x:Class="WSRKart.PolzList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WSRKart"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="800"
+      Title="PolzList"
+      Background="White"
+      ShowsNavigationUI="False"
+      FontSize="18">
+    <StackPanel>
+
+        <Label Content="Управление пользователями" HorizontalAlignment="Center" Margin="10"/>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Сортирофка и фильтрация" 
+                   HorizontalAlignment="Center"/>
+
+            <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Content="Фильтр по ролям: "
+                       HorizontalAlignment="Right" Margin="5"/>
+                <ComboBox Grid.Row="0" Grid.Column="1" Margin="5" x:Name="CbRole"/>
+
+                <Label Grid.Row="1" Grid.Column="0" Content="Cортировать: "
+                       HorizontalAlignment="Right" Margin="5"/>
+                <ComboBox Grid.Row="1" Grid.Column="1" Margin="5" x:Name="CbName">
+                    <ComboBoxItem Tag="1">
+                        <TextBlock Text="Имя" />
+                    </ComboBoxItem>
+                    <ComboBoxItem Tag="2">
+                        <TextBlock Text="Фамилия" />
+                    </ComboBoxItem>
+                    <ComboBoxItem Tag="3">
+                        <TextBlock Text="Email" />
+                    </ComboBoxItem>
+                    <ComboBoxItem Tag="4">
+                        <TextBlock Text="Роль" />
+                    </ComboBoxItem>
+                </ComboBox>
+
+                <Label Grid.Row="2" Grid.Column="0" Content="Поиск: "
+                       HorizontalAlignment="Right" Margin="5"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Margin="5" x:Name="txSearch"/>
+            </Grid>
+
+            <Button Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Content="+ Добавить нового"
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Click="OnAdd"/>
+
+            <Button Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"  Content="Обновить" Width="100"
+                    HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Click="OnUpdate"/>
+
+            <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Content="Количество пилотов: "
+                   HorizontalAlignment="Center"/>
+            <TextBlock Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        </Grid>
+
+        <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="7" x:Name="UserGrid" 
+                      AutoGenerateColumns="False" Margin="10" IsReadOnly="True" Height="250">
+            <DataGrid.Columns>
+                <!-- Binding="{Binding pos}"  -->
+                <DataGridTextColumn Header="Имя" Binding="{Binding First_Name}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Last_Name}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Роль" Binding="{Binding Role_Name}"/>
+                <DataGridTemplateColumn Header="Edit">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="OnEdit" Margin="2">Edit</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            
+            </DataGrid.Columns>
+        </DataGrid>
+        
+    </StackPanel>
+</Page>

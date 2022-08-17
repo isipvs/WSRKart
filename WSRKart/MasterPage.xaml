@@ -5,18 +5,23 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WSRKart"
       mc:Ignorable="d" 
-      d:DesignHeight="600" 
-      d:DesignWidth="1000"
       Title="MainPage"
       Background="White"
       ShowsNavigationUI="False"
       FontSize="18">
     <StackPanel>
+        <Canvas Panel.ZIndex="1" >
+            <Border Canvas.Left="30" Canvas.Top="20" BorderBrush="Gainsboro" BorderThickness="2">
+                <Button  Content="Назад" Padding="10" Click="OnBack" x:Name="Back"/>
+            </Border>
+            <Border Canvas.Right="30" Canvas.Top="20" BorderBrush="Gainsboro" BorderThickness="2">
+                <Button  Content="Logout" Padding="10" Click="OnLogout" x:Name="Logout"/>
+            </Border>
+        </Canvas>
         <Label Content="Kart Skills 2017" Background="LightGray" FontSize="36"
                HorizontalContentAlignment="Center"/>
         <Label Content="Москва, Россия 20 июня 2017" Background="LightGray" FontSize="24" HorizontalContentAlignment="Center"/>
-        <Frame Source="MainPage.xaml">
-            
+        <Frame Source="MainPage.xaml" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="1000" Height="500">
         </Frame>
         <Label  Content="До начала события 0 лет, 8 месяцев, 5 дней, 13 минут и 18 секунд" Background="LightGray" HorizontalContentAlignment="Center" FontSize="20"/>
     </StackPanel>

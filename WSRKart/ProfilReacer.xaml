@@ -84,7 +84,9 @@
                    Content="Регсистрационный&#x0a;            статус" Margin="5"/>
         <Label Grid.Row="1" Grid.Column="3" x:Name="NСonfirmationPayment" Margin="5"/>
 
-        <Button Grid.Row="9" Grid.Column="3" Content="Редактирование&#x0a;     профиля "/>
+        <Button Grid.Row="9" Grid.Column="3" >
+            <TextBlock Text="Редактирование профиля" TextAlignment="Center" TextWrapping="Wrap"/>
+        </Button>
 
 
 

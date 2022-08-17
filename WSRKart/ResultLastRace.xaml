@@ -59,7 +59,7 @@
                 <ComboBoxItem Tag="30,39">
                     <TextBlock Text="От 30 до 39" />
                 </ComboBoxItem>
-                <ComboBoxItem Tag="30,55">
+                <ComboBoxItem Tag="40,55">
                     <TextBlock Text="От 40 до 55" />
                 </ComboBoxItem>
                 <ComboBoxItem Tag="56,70">
@@ -92,10 +92,11 @@
             <Label Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" 
                    x:Name="NAvgTime" HorizontalAlignment="Center" />
 
-            <DataGrid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="7" x:Name="ResultGrid" AutoGenerateColumns="False"
+            <DataGrid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="7" x:Name="ResultGrid"
+                      AutoGenerateColumns="False"
                       Margin="10" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Место" Binding="{Binding BidNumber}"  />
+                    <DataGridTextColumn Header="Место" Binding="{Binding pos}"  />
                     <DataGridTextColumn Header="Время" Binding="{Binding RaceTime}" />
                     <DataGridTextColumn Header="Имя гонщика" Binding="{Binding Name}" />
                     <DataGridTextColumn Header="Страна" Binding="{Binding ID_Country}"  />

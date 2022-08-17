@@ -1436,6 +1436,8 @@ namespace WSRKart {
             
             private global::System.Data.DataColumn columnPassword;
             
+            private global::System.Data.DataColumn columnage;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public RacerDataTable() {
@@ -1543,6 +1545,14 @@ namespace WSRKart {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ageColumn {
+                get {
+                    return this.columnage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1578,7 +1588,7 @@ namespace WSRKart {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public RacerRow AddRacerRow(string First_Name, string Last_Name, GenderRow parentGenderRowByFK_Racer_Gender, System.DateTime DateOfBirth, CountryRow parentCountryRowByFK_Racer_Country, int ID_User, string Email, string Password) {
+            public RacerRow AddRacerRow(string First_Name, string Last_Name, GenderRow parentGenderRowByFK_Racer_Gender, System.DateTime DateOfBirth, CountryRow parentCountryRowByFK_Racer_Country, int ID_User, string Email, string Password, int age) {
                 RacerRow rowRacerRow = ((RacerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1589,7 +1599,8 @@ namespace WSRKart {
                         null,
                         ID_User,
                         Email,
-                        Password};
+                        Password,
+                        age};
                 if ((parentGenderRowByFK_Racer_Gender != null)) {
                     columnValuesArray[3] = parentGenderRowByFK_Racer_Gender[0];
                 }
@@ -1634,6 +1645,7 @@ namespace WSRKart {
                 this.columnID_User = base.Columns["ID_User"];
                 this.columnEmail = base.Columns["Email"];
                 this.columnPassword = base.Columns["Password"];
+                this.columnage = base.Columns["age"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1657,6 +1669,8 @@ namespace WSRKart {
                 base.Columns.Add(this.columnEmail);
                 this.columnPassword = new global::System.Data.DataColumn("Password", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPassword);
+                this.columnage = new global::System.Data.DataColumn("age", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnage);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_Racer}, true));
                 this.columnID_Racer.AutoIncrement = true;
@@ -1678,6 +1692,7 @@ namespace WSRKart {
                 this.columnEmail.MaxLength = 100;
                 this.columnPassword.AllowDBNull = false;
                 this.columnPassword.MaxLength = 100;
+                this.columnage.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1823,6 +1838,8 @@ namespace WSRKart {
             
             private global::System.Data.DataColumn columnID_User;
             
+            private global::System.Data.DataColumn columnRole_Name;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public UserDataTable() {
@@ -1906,6 +1923,14 @@ namespace WSRKart {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Role_NameColumn {
+                get {
+                    return this.columnRole_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1941,7 +1966,7 @@ namespace WSRKart {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UserRow AddUserRow(string Email, string Password, string First_Name, string Last_Name, RoleRow parentRoleRowByFK_User_Role, int ID_User) {
+            public UserRow AddUserRow(string Email, string Password, string First_Name, string Last_Name, RoleRow parentRoleRowByFK_User_Role, int ID_User, string Role_Name) {
                 UserRow rowUserRow = ((UserRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Email,
@@ -1949,7 +1974,8 @@ namespace WSRKart {
                         First_Name,
                         Last_Name,
                         null,
-                        ID_User};
+                        ID_User,
+                        Role_Name};
                 if ((parentRoleRowByFK_User_Role != null)) {
                     columnValuesArray[4] = parentRoleRowByFK_User_Role[0];
                 }
@@ -1988,6 +2014,7 @@ namespace WSRKart {
                 this.columnLast_Name = base.Columns["Last_Name"];
                 this.columnID_Role = base.Columns["ID_Role"];
                 this.columnID_User = base.Columns["ID_User"];
+                this.columnRole_Name = base.Columns["Role_Name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2005,6 +2032,8 @@ namespace WSRKart {
                 base.Columns.Add(this.columnID_Role);
                 this.columnID_User = new global::System.Data.DataColumn("ID_User", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID_User);
+                this.columnRole_Name = new global::System.Data.DataColumn("Role_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRole_Name);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_User}, true));
                 this.columnEmail.AllowDBNull = false;
@@ -2020,6 +2049,7 @@ namespace WSRKart {
                 this.columnID_User.AllowDBNull = false;
                 this.columnID_User.ReadOnly = true;
                 this.columnID_User.Unique = true;
+                this.columnRole_Name.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4697,6 +4727,12 @@ namespace WSRKart {
             
             private global::System.Data.DataColumn columnRacer_Age;
             
+            private global::System.Data.DataColumn columnpos;
+            
+            private global::System.Data.DataColumn columnpos_cat;
+            
+            private global::System.Data.DataColumn columnEvent_Name;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public v_prev_resultDataTable() {
@@ -4804,6 +4840,30 @@ namespace WSRKart {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn posColumn {
+                get {
+                    return this.columnpos;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn pos_catColumn {
+                get {
+                    return this.columnpos_cat;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Event_NameColumn {
+                get {
+                    return this.columnEvent_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4839,7 +4899,7 @@ namespace WSRKart {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public v_prev_resultRow Addv_prev_resultRow(short BidNumber, System.TimeSpan RaceTime, string Name, string ID_Country, int ID_Event, string Gender, string ID_EventType, int ID_Racer, int Racer_Age) {
+            public v_prev_resultRow Addv_prev_resultRow(short BidNumber, System.TimeSpan RaceTime, string Name, string ID_Country, int ID_Event, string Gender, string ID_EventType, int ID_Racer, int Racer_Age, long pos, long pos_cat, string Event_Name) {
                 v_prev_resultRow rowv_prev_resultRow = ((v_prev_resultRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         BidNumber,
@@ -4850,7 +4910,10 @@ namespace WSRKart {
                         Gender,
                         ID_EventType,
                         ID_Racer,
-                        Racer_Age};
+                        Racer_Age,
+                        pos,
+                        pos_cat,
+                        Event_Name};
                 rowv_prev_resultRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowv_prev_resultRow);
                 return rowv_prev_resultRow;
@@ -4882,6 +4945,9 @@ namespace WSRKart {
                 this.columnID_EventType = base.Columns["ID_EventType"];
                 this.columnID_Racer = base.Columns["ID_Racer"];
                 this.columnRacer_Age = base.Columns["Racer_Age"];
+                this.columnpos = base.Columns["pos"];
+                this.columnpos_cat = base.Columns["pos_cat"];
+                this.columnEvent_Name = base.Columns["Event_Name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4905,8 +4971,15 @@ namespace WSRKart {
                 base.Columns.Add(this.columnID_Racer);
                 this.columnRacer_Age = new global::System.Data.DataColumn("Racer_Age", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRacer_Age);
+                this.columnpos = new global::System.Data.DataColumn("pos", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpos);
+                this.columnpos_cat = new global::System.Data.DataColumn("pos_cat", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpos_cat);
+                this.columnEvent_Name = new global::System.Data.DataColumn("Event_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEvent_Name);
                 this.columnBidNumber.AllowDBNull = false;
                 this.columnRaceTime.AllowDBNull = false;
+                this.columnName.AllowDBNull = false;
                 this.columnName.ReadOnly = true;
                 this.columnName.MaxLength = 61;
                 this.columnID_Country.AllowDBNull = false;
@@ -4918,6 +4991,8 @@ namespace WSRKart {
                 this.columnID_EventType.MaxLength = 5;
                 this.columnID_Racer.AllowDBNull = false;
                 this.columnRacer_Age.ReadOnly = true;
+                this.columnEvent_Name.AllowDBNull = false;
+                this.columnEvent_Name.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5861,6 +5936,22 @@ namespace WSRKart {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int age {
+                get {
+                    try {
+                        return ((int)(this[this.tableRacer.ageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'age\' в таблице \'Racer\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRacer.ageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public CountryRow CountryRow {
                 get {
                     return ((CountryRow)(this.GetParentRow(this.Table.ParentRelations["FK_Racer_Country"])));
@@ -5902,6 +5993,18 @@ namespace WSRKart {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetID_UserNull() {
                 this[this.tableRacer.ID_UserColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsageNull() {
+                return this.IsNull(this.tableRacer.ageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetageNull() {
+                this[this.tableRacer.ageColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5998,6 +6101,22 @@ namespace WSRKart {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Role_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableUser.Role_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Role_Name\' в таблице \'User\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUser.Role_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public RoleRow RoleRow {
                 get {
                     return ((RoleRow)(this.GetParentRow(this.Table.ParentRelations["FK_User_Role"])));
@@ -6005,6 +6124,18 @@ namespace WSRKart {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_User_Role"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsRole_NameNull() {
+                return this.IsNull(this.tableUser.Role_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetRole_NameNull() {
+                this[this.tableUser.Role_NameColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -6759,12 +6890,7 @@ namespace WSRKart {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Name {
                 get {
-                    try {
-                        return ((string)(this[this.tablev_prev_result.NameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Name\' в таблице \'v_prev_result\' равно DBNull.", e);
-                    }
+                    return ((string)(this[this.tablev_prev_result.NameColumn]));
                 }
                 set {
                     this[this.tablev_prev_result.NameColumn] = value;
@@ -6844,14 +6970,45 @@ namespace WSRKart {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNameNull() {
-                return this.IsNull(this.tablev_prev_result.NameColumn);
+            public long pos {
+                get {
+                    try {
+                        return ((long)(this[this.tablev_prev_result.posColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'pos\' в таблице \'v_prev_result\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablev_prev_result.posColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNameNull() {
-                this[this.tablev_prev_result.NameColumn] = global::System.Convert.DBNull;
+            public long pos_cat {
+                get {
+                    try {
+                        return ((long)(this[this.tablev_prev_result.pos_catColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'pos_cat\' в таблице \'v_prev_result\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablev_prev_result.pos_catColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Event_Name {
+                get {
+                    return ((string)(this[this.tablev_prev_result.Event_NameColumn]));
+                }
+                set {
+                    this[this.tablev_prev_result.Event_NameColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6864,6 +7021,30 @@ namespace WSRKart {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetRacer_AgeNull() {
                 this[this.tablev_prev_result.Racer_AgeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsposNull() {
+                return this.IsNull(this.tablev_prev_result.posColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetposNull() {
+                this[this.tablev_prev_result.posColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Ispos_catNull() {
+                return this.IsNull(this.tablev_prev_result.pos_catColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setpos_catNull() {
+                this[this.tablev_prev_result.pos_catColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -8387,6 +8568,7 @@ SELECT ID_Gender, Gender_Name FROM Gender WHERE (ID_Gender = @ID_Gender)";
             tableMapping.ColumnMappings.Add("ID_User", "ID_User");
             tableMapping.ColumnMappings.Add("Email", "Email");
             tableMapping.ColumnMappings.Add("Password", "Password");
+            tableMapping.ColumnMappings.Add("age", "age");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -8404,7 +8586,7 @@ SELECT ID_Gender, Gender_Name FROM Gender WHERE (ID_Gender = @ID_Gender)";
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID_Racer, Gender, DateOfBirth, ID_Country, ID_User, Email, Password, First" +
-                "_Name, Last_Name\r\nFROM     v_racer";
+                "_Name, Last_Name, age\r\nFROM     v_racer";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -8422,8 +8604,8 @@ SELECT ID_Gender, Gender_Name FROM Gender WHERE (ID_Gender = @ID_Gender)";
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Racer", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Output, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT ID_Racer, Gender, DateOfBirth, ID_Country, ID_User, Email, Password, First" +
-                "_Name, Last_Name\r\nFROM     v_racer where ID_Racer=@ID_Racer";
+            this._commandCollection[2].CommandText = "SELECT DateOfBirth, Email, First_Name, Gender, ID_Country, ID_Racer, ID_User, Las" +
+                "t_Name, Password, age FROM v_racer WHERE (ID_Racer = @ID_Racer)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Racer", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Racer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
@@ -8739,45 +8921,8 @@ SELECT ID_Gender, Gender_Name FROM Gender WHERE (ID_Gender = @ID_Gender)";
             tableMapping.ColumnMappings.Add("Last_Name", "Last_Name");
             tableMapping.ColumnMappings.Add("ID_Role", "ID_Role");
             tableMapping.ColumnMappings.Add("ID_User", "ID_User");
+            tableMapping.ColumnMappings.Add("Role_Name", "Role_Name");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[User] WHERE (([Email] = @Original_Email) AND ([Password] = @Or" +
-                "iginal_Password) AND ([First_Name] = @Original_First_Name) AND ([Last_Name] = @O" +
-                "riginal_Last_Name) AND ([ID_Role] = @Original_ID_Role) AND ([ID_User] = @Origina" +
-                "l_ID_User))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Password", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_First_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "First_Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Last_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Role", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Role", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_User", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_User", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[User] ([Email], [Password], [First_Name], [Last_Name], [ID_Rol" +
-                "e]) VALUES (@Email, @Password, @First_Name, @Last_Name, @ID_Role)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@First_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "First_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Last_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Role", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Role", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[User] SET [Email] = @Email, [Password] = @Password, [First_Name] = @First_Name, [Last_Name] = @Last_Name, [ID_Role] = @ID_Role WHERE (([Email] = @Original_Email) AND ([Password] = @Original_Password) AND ([First_Name] = @Original_First_Name) AND ([Last_Name] = @Original_Last_Name) AND ([ID_Role] = @Original_ID_Role) AND ([ID_User] = @Original_ID_User))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@First_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "First_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Last_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Role", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Role", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Password", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_First_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "First_Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Last_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Role", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Role", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_User", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_User", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8790,10 +8935,11 @@ SELECT ID_Gender, Gender_Name FROM Gender WHERE (ID_Gender = @ID_Gender)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Email, Password, First_Name, Last_Name, ID_Role, ID_User FROM dbo.[User]";
+            this._commandCollection[0].CommandText = "SELECT Email, Password, First_Name, Last_Name, Role_Name, ID_Role, ID_User FROM d" +
+                "bo.[v_User]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -8802,6 +8948,14 @@ SELECT ID_Gender, Gender_Name FROM Gender WHERE (ID_Gender = @ID_Gender)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT Email, Password, First_Name, Last_Name, Role_Name, ID_Role, ID_User FROM d" +
+                "bo.[v_User] where (@ID_role = \'0\' or ID_Role = @ID_role ) and (@txt is null or  " +
+                "Email + First_Name + Last_Name  like @txt )";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_role", global::System.Data.SqlDbType.NChar, 1, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Role", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@txt", global::System.Data.SqlDbType.NVarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8856,30 +9010,26 @@ SELECT ID_Gender, Gender_Name FROM Gender WHERE (ID_Gender = @ID_Gender)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSet.UserDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSet dataSet) {
-            return this.Adapter.Update(dataSet, "User");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy_Fltr(DataSet.UserDataTable dataTable, string ID_role, string txt) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((ID_role == null)) {
+                throw new global::System.ArgumentNullException("ID_role");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(ID_role));
+            }
+            if ((txt == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(txt));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
     }
     
@@ -11781,7 +11931,7 @@ SELECT ID_Registration_Status, Statu_Name FROM Registration_Status WHERE (ID_Reg
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class v_prev_result_Adapter : global::System.ComponentModel.Component {
+    public partial class Prev_Result_Adapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -11795,7 +11945,7 @@ SELECT ID_Registration_Status, Statu_Name FROM Registration_Status WHERE (ID_Reg
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public v_prev_result_Adapter() {
+        public Prev_Result_Adapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -11902,6 +12052,9 @@ SELECT ID_Registration_Status, Statu_Name FROM Registration_Status WHERE (ID_Reg
             tableMapping.ColumnMappings.Add("ID_EventType", "ID_EventType");
             tableMapping.ColumnMappings.Add("ID_Racer", "ID_Racer");
             tableMapping.ColumnMappings.Add("Racer_Age", "Racer_Age");
+            tableMapping.ColumnMappings.Add("pos", "pos");
+            tableMapping.ColumnMappings.Add("pos_cat", "pos_cat");
+            tableMapping.ColumnMappings.Add("Event_Name", "Event_Name");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -11915,24 +12068,28 @@ SELECT ID_Registration_Status, Statu_Name FROM Registration_Status WHERE (ID_Reg
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT BidNumber, RaceTime, Name, ID_Country, ID_Event, Gender, ID_EventType, ID_" +
-                "Racer, Racer_Age FROM dbo.v_prev_result";
+                "Racer, Racer_Age, pos, pos_cat, Event_Name FROM dbo.v_prev_result";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT BidNumber, RaceTime, Name, ID_Country, ID_Event, Gender, ID_EventType, ID_Racer, Racer_Age
-FROM     v_prev_result
-WHERE  (@Gender = 'x' OR
-                  Gender = @Gender) AND (ID_Event = @Id_Event) AND (ID_EventType = @Id_EventType) AND (Racer_Age BETWEEN @Age1 AND @Age2)";
+            this._commandCollection[1].CommandText = @"SELECT BidNumber, Event_Name, Gender, ID_Country, ID_Event, ID_EventType, ID_Racer, Name, RaceTime, Racer_Age, pos, pos_cat FROM v_prev_result WHERE (@Gender = 'x' OR Gender = @Gender) AND (ID_Event = @Id_Event) AND (ID_EventType = @Id_EventType) AND (Racer_Age BETWEEN @Age1 AND @Age2)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.NChar, 1, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id_Event", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Event", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id_EventType", global::System.Data.SqlDbType.NVarChar, 5, global::System.Data.ParameterDirection.Input, 0, 0, "ID_EventType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Age1", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Racer_Age", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Age2", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Racer_Age", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT BidNumber, RaceTime, Name, ID_Country, ID_Event, Gender, ID_EventType, ID_" +
+                "Racer, Racer_Age, pos, pos_cat, Event_Name FROM dbo.v_prev_result where ID_Racer" +
+                "=@ID_Racer";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Racer", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Racer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12031,6 +12188,20 @@ WHERE  (@Gender = 'x' OR
             DataSet.v_prev_resultDataTable dataTable = new DataSet.v_prev_resultDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy_Racer(DataSet.v_prev_resultDataTable dataTable, int ID_Racer) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID_Racer));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
         }
     }
     
@@ -12548,8 +12719,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
         
         private Gender_Adapter _gender_Adapter;
         
-        private User_Adapter _user_Adapter;
-        
         private Role_Adapter _role_Adapter;
         
         private Registration_Adapter _registration_Adapter;
@@ -12608,20 +12777,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
             }
             set {
                 this._gender_Adapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public User_Adapter User_Adapter {
-            get {
-                return this._user_Adapter;
-            }
-            set {
-                this._user_Adapter = value;
             }
         }
         
@@ -12778,10 +12933,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                             && (this._gender_Adapter.Connection != null))) {
                     return this._gender_Adapter.Connection;
                 }
-                if (((this._user_Adapter != null) 
-                            && (this._user_Adapter.Connection != null))) {
-                    return this._user_Adapter.Connection;
-                }
                 if (((this._role_Adapter != null) 
                             && (this._role_Adapter.Connection != null))) {
                     return this._role_Adapter.Connection;
@@ -12835,9 +12986,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                     count = (count + 1);
                 }
                 if ((this._gender_Adapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._user_Adapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._role_Adapter != null)) {
@@ -12929,15 +13077,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._event_Type_Adapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._user_Adapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.User.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._user_Adapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -13044,14 +13183,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._user_Adapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.User.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._user_Adapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._registration_Adapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Registration.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -13139,14 +13270,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._registration_Adapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._user_Adapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.User.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._user_Adapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -13247,11 +13370,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
-            if (((this._user_Adapter != null) 
-                        && (this.MatchTableAdapterConnection(this._user_Adapter.Connection) == false))) {
-                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
-                        "r, должны использовать одинаковую строку подключения.");
-            }
             if (((this._role_Adapter != null) 
                         && (this.MatchTableAdapterConnection(this._role_Adapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
@@ -13345,15 +13463,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                     if (this._gender_Adapter.Adapter.AcceptChangesDuringUpdate) {
                         this._gender_Adapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._gender_Adapter.Adapter);
-                    }
-                }
-                if ((this._user_Adapter != null)) {
-                    revertConnections.Add(this._user_Adapter, this._user_Adapter.Connection);
-                    this._user_Adapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._user_Adapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._user_Adapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._user_Adapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._user_Adapter.Adapter);
                     }
                 }
                 if ((this._role_Adapter != null)) {
@@ -13502,10 +13611,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                 if ((this._gender_Adapter != null)) {
                     this._gender_Adapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._gender_Adapter]));
                     this._gender_Adapter.Transaction = null;
-                }
-                if ((this._user_Adapter != null)) {
-                    this._user_Adapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._user_Adapter]));
-                    this._user_Adapter.Transaction = null;
                 }
                 if ((this._role_Adapter != null)) {
                     this._role_Adapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._role_Adapter]));
