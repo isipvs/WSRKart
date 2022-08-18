@@ -22,42 +22,49 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="200"/>
             </Grid.RowDefinitions>
 
             <Label Grid.Row="0" Grid.Column="0" Content="Email" HorizontalAlignment="Right" Margin="5"/>
-            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="Email" VerticalAlignment="Stretch"/>
-    
+            <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" x:Name="email" 
+                     Margin="5"  VerticalAlignment="Center"/>
+
             <Label Grid.Row="1" Grid.Column="0" Content="Имя: " HorizontalAlignment="Right" Margin="5"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Text="Имя" x:Name="Name" 
+            <TextBox Grid.Row="1" Grid.Column="1"  x:Name="l_name" 
                        VerticalAlignment="Center" Margin="5"/>
 
             <Label Grid.Row="2" Grid.Column="0" Content="Фамилия: " HorizontalAlignment="Right" Margin="5"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Text="Фамилия" x:Name="Famil"
-                       VerticalAlignment="Center" Margin="5"/>
+            <TextBox Grid.Row="2" Grid.Column="1" x:Name="f_name" VerticalAlignment="Center" Margin="5"/>
 
             <Label Grid.Row="3" Grid.Column="0" Content="Роль: " HorizontalAlignment="Right" Margin="5"/>
-            <ComboBox Grid.Row="3" Grid.Column="1" Text="Фамилия" x:Name="Role"
-                       VerticalAlignment="Center" Margin="5"/>
+            <ComboBox Grid.Row="3" Grid.Column="1" x:Name="cbRole"
+                      VerticalAlignment="Center" Margin="5" SelectedIndex="1">
+                <ComboBoxItem Tag="A">
+                    <TextBlock Text="Администратор" />
+                </ComboBoxItem>
+                <ComboBoxItem Tag="C">
+                    <TextBlock Text="Координатор" />
+                </ComboBoxItem>
+            </ComboBox>
 
             <Label Grid.Row="1" Grid.Column="2" Content="Пароль: " HorizontalAlignment="Right" Margin="5"/>
-            <TextBox Grid.Row="1" Grid.Column="3" Text="Password" x:Name="Password"
+            <PasswordBox Grid.Row="1" Grid.Column="3" x:Name="pswd"
                        VerticalAlignment="Center" Margin="5"/>
 
             <Label Grid.Row="2" Grid.Column="2" Content="Повторить пароль: " 
                    HorizontalAlignment="Right" Margin="5"/>
-            <TextBox Grid.Row="2" Grid.Column="3" Text="Re-enter Password" x:Name="RePassword"
+            <PasswordBox Grid.Row="2" Grid.Column="3" x:Name="pswd2"
                        VerticalAlignment="Center" Margin="5"/>
 
             <Button Grid.Row="5" Grid.Column="1" Content="Сохранить" Margin="5"
-                    HorizontalAlignment="Center" Width="100" Click="OnSave"/>
+                    HorizontalAlignment="Center" Width="100" Click="OnSave" VerticalAlignment="Bottom"/>
 
             <Button Grid.Row="5" Grid.Column="2" Content="Отмена" Margin="5"
-                    HorizontalAlignment="Center" Width="70" Click="OnCancel"/>
+                    HorizontalAlignment="Center" Width="100" Click="OnCancel" VerticalAlignment="Bottom"/>
         </Grid>
     </StackPanel>
 </Page>

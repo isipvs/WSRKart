@@ -19,6 +19,10 @@ namespace WSRKart {
 
 namespace WSRKart.DataSetTableAdapters
 {
+    partial class Racer_Adapter
+    {
+    }
+
     partial class Prev_Result_Adapter
     {
     }

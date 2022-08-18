@@ -78,7 +78,10 @@ namespace WSRKart
 
         private void Cancel(object sender, RoutedEventArgs e)
         {
-
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
         }
 
         int lastsumm = 0;

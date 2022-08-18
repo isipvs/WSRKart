@@ -32,7 +32,7 @@ namespace WSRKart
 
         private void OnSponsor(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new SponsorList());
+            NavigationService.Navigate(new ListSponsor());
         }
 
         private void OnLogout(object sender, RoutedEventArgs e)

@@ -37,7 +37,7 @@ namespace WSRKart
 
         private void OnVolunteer(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new VolunteersList());
         }
 
         private void OnLogout(object sender, RoutedEventArgs e)
@@ -47,7 +47,7 @@ namespace WSRKart
 
         private void OnCharity(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new CharityList());
         }
 
         private void OnPolzList(object sender, RoutedEventArgs e)

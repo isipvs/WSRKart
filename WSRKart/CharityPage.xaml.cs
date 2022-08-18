@@ -12,20 +12,30 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WSRKart.DataSetTableAdapters;
 
 namespace WSRKart
 {
     /// <summary>
-    /// Логика взаимодействия для SponsorList.xaml
+    /// Логика взаимодействия для CharityPage.xaml
     /// </summary>
-    public partial class SponsorList : Page
+    public partial class CharityPage : Page
     {
-        public SponsorList()
+        DataSet dataSet = new DataSet();
+        Charity_Adapter adapter = new Charity_Adapter();
+
+        public CharityPage()
         {
             InitializeComponent();
+            adapter.Fill(dataSet.Charity);
         }
 
-        private void OnCancel(object sender, RoutedEventArgs e)
+        private void AddImage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             if (NavigationService.CanGoBack)
             {
@@ -33,9 +43,9 @@ namespace WSRKart
             }
         }
 
-        private void OnLogout(object sender, RoutedEventArgs e)
+        private void Add_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MenuRacer());
+
         }
     }
 }

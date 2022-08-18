@@ -78,6 +78,8 @@ namespace WSRKart {
         
         private global::System.Data.DataRelation relationFK_Volunteer_Gender1;
         
+        private global::System.Data.DataRelation relationFK_Race_Country1;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -566,6 +568,7 @@ namespace WSRKart {
             this.relationFK_Event_Event_Type1 = this.Relations["FK_Event_Event_Type1"];
             this.relationFK_Racer_Gender1 = this.Relations["FK_Racer_Gender1"];
             this.relationFK_Volunteer_Gender1 = this.Relations["FK_Volunteer_Gender1"];
+            this.relationFK_Race_Country1 = this.Relations["FK_Race_Country1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -654,6 +657,10 @@ namespace WSRKart {
                         this.tableGenderEx.ID_GenderColumn}, new global::System.Data.DataColumn[] {
                         this.tableVolunteer.Gender_IDColumn}, false);
             this.Relations.Add(this.relationFK_Volunteer_Gender1);
+            this.relationFK_Race_Country1 = new global::System.Data.DataRelation("FK_Race_Country1", new global::System.Data.DataColumn[] {
+                        this.tableVolunteer.ID_CountryColumn}, new global::System.Data.DataColumn[] {
+                        this.tableRace.ID_CountryColumn}, false);
+            this.Relations.Add(this.relationFK_Race_Country1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3821,6 +3828,10 @@ namespace WSRKart {
             
             private global::System.Data.DataColumn columnGender_ID;
             
+            private global::System.Data.DataColumn columnGender_Name;
+            
+            private global::System.Data.DataColumn columnCountry_Name;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public VolunteerDataTable() {
@@ -3896,6 +3907,22 @@ namespace WSRKart {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Gender_NameColumn {
+                get {
+                    return this.columnGender_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Country_NameColumn {
+                get {
+                    return this.columnCountry_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3931,14 +3958,16 @@ namespace WSRKart {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public VolunteerRow AddVolunteerRow(string ID_Volunteer, string First_Name, string Last_Name, CountryRow parentCountryRowByFK_Volunteer_Country, GenderRow parentGenderRowByFK_Volunteer_Gender) {
+            public VolunteerRow AddVolunteerRow(string ID_Volunteer, string First_Name, string Last_Name, CountryRow parentCountryRowByFK_Volunteer_Country, GenderRow parentGenderRowByFK_Volunteer_Gender, string Gender_Name, string Country_Name) {
                 VolunteerRow rowVolunteerRow = ((VolunteerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID_Volunteer,
                         First_Name,
                         Last_Name,
                         null,
-                        null};
+                        null,
+                        Gender_Name,
+                        Country_Name};
                 if ((parentCountryRowByFK_Volunteer_Country != null)) {
                     columnValuesArray[3] = parentCountryRowByFK_Volunteer_Country[0];
                 }
@@ -3979,6 +4008,8 @@ namespace WSRKart {
                 this.columnLast_Name = base.Columns["Last_Name"];
                 this.columnID_Country = base.Columns["ID_Country"];
                 this.columnGender_ID = base.Columns["Gender_ID"];
+                this.columnGender_Name = base.Columns["Gender_Name"];
+                this.columnCountry_Name = base.Columns["Country_Name"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3994,6 +4025,10 @@ namespace WSRKart {
                 base.Columns.Add(this.columnID_Country);
                 this.columnGender_ID = new global::System.Data.DataColumn("Gender_ID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGender_ID);
+                this.columnGender_Name = new global::System.Data.DataColumn("Gender_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGender_Name);
+                this.columnCountry_Name = new global::System.Data.DataColumn("Country_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCountry_Name);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_Volunteer}, true));
                 this.columnID_Volunteer.AllowDBNull = false;
@@ -4006,6 +4041,9 @@ namespace WSRKart {
                 this.columnID_Country.AllowDBNull = false;
                 this.columnID_Country.MaxLength = 3;
                 this.columnGender_ID.MaxLength = 1;
+                this.columnGender_Name.MaxLength = 50;
+                this.columnCountry_Name.AllowDBNull = false;
+                this.columnCountry_Name.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6618,6 +6656,17 @@ namespace WSRKart {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public VolunteerRow VolunteerRow {
+                get {
+                    return ((VolunteerRow)(this.GetParentRow(this.Table.ParentRelations["FK_Race_Country1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Race_Country1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public EventRow[] GetEventRows() {
                 if ((this.Table.ChildRelations["FK_Event_Race"] == null)) {
                     return new EventRow[0];
@@ -6704,6 +6753,33 @@ namespace WSRKart {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Gender_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableVolunteer.Gender_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Gender_Name\' в таблице \'Volunteer\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVolunteer.Gender_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Country_Name {
+                get {
+                    return ((string)(this[this.tableVolunteer.Country_NameColumn]));
+                }
+                set {
+                    this[this.tableVolunteer.Country_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public CountryRow CountryRow {
                 get {
                     return ((CountryRow)(this.GetParentRow(this.Table.ParentRelations["FK_Volunteer_Country"])));
@@ -6745,6 +6821,29 @@ namespace WSRKart {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetGender_IDNull() {
                 this[this.tableVolunteer.Gender_IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsGender_NameNull() {
+                return this.IsNull(this.tableVolunteer.Gender_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetGender_NameNull() {
+                this[this.tableVolunteer.Gender_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public RaceRow[] GetRaceRows() {
+                if ((this.Table.ChildRelations["FK_Race_Country1"] == null)) {
+                    return new RaceRow[0];
+                }
+                else {
+                    return ((RaceRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Race_Country1"])));
+                }
             }
         }
         
@@ -8935,7 +9034,7 @@ SELECT ID_Gender, Gender_Name FROM Gender WHERE (ID_Gender = @ID_Gender)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Email, Password, First_Name, Last_Name, Role_Name, ID_Role, ID_User FROM d" +
@@ -8950,12 +9049,43 @@ SELECT ID_Gender, Gender_Name FROM Gender WHERE (ID_Gender = @ID_Gender)";
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT Email, Password, First_Name, Last_Name, Role_Name, ID_Role, ID_User FROM d" +
-                "bo.[v_User] where (@ID_role = \'0\' or ID_Role = @ID_role ) and (@txt is null or  " +
-                "Email + First_Name + Last_Name  like @txt )";
+            this._commandCollection[2].CommandText = @"SELECT Email, Password, First_Name, Last_Name, Role_Name, ID_Role, ID_User
+FROM     v_user
+WHERE  (@ID_role = '0') AND (@txt IS NULL) OR
+                  (@ID_role = '0') AND (Email + First_Name + Last_Name LIKE @txt) OR
+                  (@txt IS NULL) AND (ID_Role = @ID_role) OR
+                  (Email + First_Name + Last_Name LIKE @txt) AND (ID_Role = @ID_role)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_role", global::System.Data.SqlDbType.NChar, 1, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Role", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@txt", global::System.Data.SqlDbType.NVarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT Email, Password, First_Name, Last_Name, Role_Name, ID_Role, ID_User FROM d" +
+                "bo.[v_User] where ID_user=@ID_user";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_user", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_User", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "INSERT INTO [User]\r\n                  (Email, Password, First_Name, Last_Name, ID" +
+                "_Role)\r\nVALUES (@email,@password,@first_name,@last_name,@id_role)";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@email", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@first_name", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "First_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@last_name", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_role", global::System.Data.SqlDbType.NChar, 1, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Role", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "UPDATE [User]\r\n                 set Email = @email, \r\n\tPassword = @password,\r\n   " +
+                "             First_Name = @first_name, \r\n                Last_Name = @last_name," +
+                " \r\n                ID_Role = @id_role\r\nwhere ID_user=@ID_user";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@email", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@first_name", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "First_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@last_name", global::System.Data.SqlDbType.NVarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_role", global::System.Data.SqlDbType.NChar, 1, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Role", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_user", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_User", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9029,6 +9159,127 @@ SELECT ID_Gender, Gender_Name FROM Gender WHERE (ID_Gender = @ID_Gender)";
                 dataTable.Clear();
             }
             int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy_ID(DataSet.UserDataTable dataTable, int ID_user) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ID_user));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int Insert_User(string email, string password, string first_name, string last_name, string id_role) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            if ((email == null)) {
+                throw new global::System.ArgumentNullException("email");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(email));
+            }
+            if ((password == null)) {
+                throw new global::System.ArgumentNullException("password");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(password));
+            }
+            if ((first_name == null)) {
+                throw new global::System.ArgumentNullException("first_name");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(first_name));
+            }
+            if ((last_name == null)) {
+                throw new global::System.ArgumentNullException("last_name");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(last_name));
+            }
+            if ((id_role == null)) {
+                throw new global::System.ArgumentNullException("id_role");
+            }
+            else {
+                command.Parameters[4].Value = ((string)(id_role));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int Update_User(string email, string password, string first_name, string last_name, string id_role, int ID_user) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
+            if ((email == null)) {
+                throw new global::System.ArgumentNullException("email");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(email));
+            }
+            if ((password == null)) {
+                throw new global::System.ArgumentNullException("password");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(password));
+            }
+            if ((first_name == null)) {
+                throw new global::System.ArgumentNullException("first_name");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(first_name));
+            }
+            if ((last_name == null)) {
+                throw new global::System.ArgumentNullException("last_name");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(last_name));
+            }
+            if ((id_role == null)) {
+                throw new global::System.ArgumentNullException("id_role");
+            }
+            else {
+                command.Parameters[4].Value = ((string)(id_role));
+            }
+            command.Parameters[5].Value = ((int)(ID_user));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
             return returnValue;
         }
     }
@@ -9837,8 +10088,7 @@ SELECT ID_Сharity, Charity_Name, Charity_Description, Charity_Logo FROM Charity
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_Сharity, Charity_Name, Charity_Description, Charity_Logo FROM dbo.Chari" +
-                "ty";
+            this._commandCollection[0].CommandText = "SELECT ID_Сharity, Charity_Name, Charity_Description, Charity_Logo FROM Charity";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -10827,7 +11077,7 @@ SELECT ID_Race, Race_Name, Sity, ID_Country, Year_Held FROM Race WHERE (ID_Race 
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class VolunteerTableAdapter : global::System.ComponentModel.Component {
+    public partial class Volunteer_Adapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -10841,7 +11091,7 @@ SELECT ID_Race, Race_Name, Sity, ID_Country, Year_Held FROM Race WHERE (ID_Race 
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public VolunteerTableAdapter() {
+        public Volunteer_Adapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -10944,43 +11194,9 @@ SELECT ID_Race, Race_Name, Sity, ID_Country, Year_Held FROM Race WHERE (ID_Race 
             tableMapping.ColumnMappings.Add("Last_Name", "Last_Name");
             tableMapping.ColumnMappings.Add("ID_Country", "ID_Country");
             tableMapping.ColumnMappings.Add("Gender_ID", "Gender_ID");
+            tableMapping.ColumnMappings.Add("Gender_Name", "Gender_Name");
+            tableMapping.ColumnMappings.Add("Country_Name", "Country_Name");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Volunteer] WHERE (([ID_Volunteer] = @Original_ID_Volunteer) AND ([First_Name] = @Original_First_Name) AND ([Last_Name] = @Original_Last_Name) AND ([ID_Country] = @Original_ID_Country) AND ((@IsNull_Gender_ID = 1 AND [Gender_ID] IS NULL) OR ([Gender_ID] = @Original_Gender_ID)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Volunteer", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Volunteer", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_First_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "First_Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Last_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Country", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Country", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Gender_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Gender_ID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Volunteer] ([ID_Volunteer], [First_Name], [Last_Name], [ID_Country], [Gender_ID]) VALUES (@ID_Volunteer, @First_Name, @Last_Name, @ID_Country, @Gender_ID);
-SELECT ID_Volunteer, First_Name, Last_Name, ID_Country, Gender_ID FROM Volunteer WHERE (ID_Volunteer = @ID_Volunteer)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Volunteer", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Volunteer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@First_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "First_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Last_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Country", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Country", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender_ID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Volunteer] SET [ID_Volunteer] = @ID_Volunteer, [First_Name] = @First_Name, [Last_Name] = @Last_Name, [ID_Country] = @ID_Country, [Gender_ID] = @Gender_ID WHERE (([ID_Volunteer] = @Original_ID_Volunteer) AND ([First_Name] = @Original_First_Name) AND ([Last_Name] = @Original_Last_Name) AND ([ID_Country] = @Original_ID_Country) AND ((@IsNull_Gender_ID = 1 AND [Gender_ID] IS NULL) OR ([Gender_ID] = @Original_Gender_ID)));
-SELECT ID_Volunteer, First_Name, Last_Name, ID_Country, Gender_ID FROM Volunteer WHERE (ID_Volunteer = @ID_Volunteer)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Volunteer", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Volunteer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@First_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "First_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Last_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Country", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Country", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender_ID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Volunteer", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Volunteer", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_First_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "First_Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Last_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Last_Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Country", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Country", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Gender_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender_ID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Gender_ID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10996,8 +11212,10 @@ SELECT ID_Volunteer, First_Name, Last_Name, ID_Country, Gender_ID FROM Volunteer
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_Volunteer, First_Name, Last_Name, ID_Country, Gender_ID FROM dbo.Volunt" +
-                "eer";
+            this._commandCollection[0].CommandText = @"SELECT v.ID_Volunteer, v.First_Name, v.Last_Name, v.ID_Country, v.Gender_ID, g.Gender_Name, c.Country_Name
+FROM     Volunteer AS v INNER JOIN
+                  Gender AS g ON v.Gender_ID = g.ID_Gender INNER JOIN
+                  Country AS c ON c.ID_Country = v.ID_Country";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -11023,230 +11241,6 @@ SELECT ID_Volunteer, First_Name, Last_Name, ID_Country, Gender_ID FROM Volunteer
             DataSet.VolunteerDataTable dataTable = new DataSet.VolunteerDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSet.VolunteerDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Volunteer");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_ID_Volunteer, string Original_First_Name, string Original_Last_Name, string Original_ID_Country, string Original_Gender_ID) {
-            if ((Original_ID_Volunteer == null)) {
-                throw new global::System.ArgumentNullException("Original_ID_Volunteer");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_ID_Volunteer));
-            }
-            if ((Original_First_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_First_Name");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_First_Name));
-            }
-            if ((Original_Last_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Last_Name");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Last_Name));
-            }
-            if ((Original_ID_Country == null)) {
-                throw new global::System.ArgumentNullException("Original_ID_Country");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_ID_Country));
-            }
-            if ((Original_Gender_ID == null)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Gender_ID));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string ID_Volunteer, string First_Name, string Last_Name, string ID_Country, string Gender_ID) {
-            if ((ID_Volunteer == null)) {
-                throw new global::System.ArgumentNullException("ID_Volunteer");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(ID_Volunteer));
-            }
-            if ((First_Name == null)) {
-                throw new global::System.ArgumentNullException("First_Name");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(First_Name));
-            }
-            if ((Last_Name == null)) {
-                throw new global::System.ArgumentNullException("Last_Name");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Last_Name));
-            }
-            if ((ID_Country == null)) {
-                throw new global::System.ArgumentNullException("ID_Country");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(ID_Country));
-            }
-            if ((Gender_ID == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Gender_ID));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string ID_Volunteer, string First_Name, string Last_Name, string ID_Country, string Gender_ID, string Original_ID_Volunteer, string Original_First_Name, string Original_Last_Name, string Original_ID_Country, string Original_Gender_ID) {
-            if ((ID_Volunteer == null)) {
-                throw new global::System.ArgumentNullException("ID_Volunteer");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(ID_Volunteer));
-            }
-            if ((First_Name == null)) {
-                throw new global::System.ArgumentNullException("First_Name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(First_Name));
-            }
-            if ((Last_Name == null)) {
-                throw new global::System.ArgumentNullException("Last_Name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Last_Name));
-            }
-            if ((ID_Country == null)) {
-                throw new global::System.ArgumentNullException("ID_Country");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(ID_Country));
-            }
-            if ((Gender_ID == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Gender_ID));
-            }
-            if ((Original_ID_Volunteer == null)) {
-                throw new global::System.ArgumentNullException("Original_ID_Volunteer");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_ID_Volunteer));
-            }
-            if ((Original_First_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_First_Name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_First_Name));
-            }
-            if ((Original_Last_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Last_Name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Last_Name));
-            }
-            if ((Original_ID_Country == null)) {
-                throw new global::System.ArgumentNullException("Original_ID_Country");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_ID_Country));
-            }
-            if ((Original_Gender_ID == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Gender_ID));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string First_Name, string Last_Name, string ID_Country, string Gender_ID, string Original_ID_Volunteer, string Original_First_Name, string Original_Last_Name, string Original_ID_Country, string Original_Gender_ID) {
-            return this.Update(Original_ID_Volunteer, First_Name, Last_Name, ID_Country, Gender_ID, Original_ID_Volunteer, Original_First_Name, Original_Last_Name, Original_ID_Country, Original_Gender_ID);
         }
     }
     
@@ -12729,8 +12723,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
         
         private RaceTableAdapter _raceTableAdapter;
         
-        private VolunteerTableAdapter _volunteerTableAdapter;
-        
         private SponsorshipTableAdapter _sponsorshipTableAdapter;
         
         private Registration_StatusTableAdapter _registration_StatusTableAdapter;
@@ -12855,20 +12847,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public VolunteerTableAdapter VolunteerTableAdapter {
-            get {
-                return this._volunteerTableAdapter;
-            }
-            set {
-                this._volunteerTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
         public SponsorshipTableAdapter SponsorshipTableAdapter {
             get {
                 return this._sponsorshipTableAdapter;
@@ -12953,10 +12931,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                             && (this._raceTableAdapter.Connection != null))) {
                     return this._raceTableAdapter.Connection;
                 }
-                if (((this._volunteerTableAdapter != null) 
-                            && (this._volunteerTableAdapter.Connection != null))) {
-                    return this._volunteerTableAdapter.Connection;
-                }
                 if (((this._sponsorshipTableAdapter != null) 
                             && (this._sponsorshipTableAdapter.Connection != null))) {
                     return this._sponsorshipTableAdapter.Connection;
@@ -13001,9 +12975,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                     count = (count + 1);
                 }
                 if ((this._raceTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._volunteerTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._sponsorshipTableAdapter != null)) {
@@ -13095,15 +13066,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._event_Adapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._volunteerTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Volunteer.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._volunteerTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -13199,14 +13161,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._volunteerTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Volunteer.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._volunteerTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._sponsorshipTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Sponsorship.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -13246,14 +13200,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._sponsorshipTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._volunteerTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Volunteer.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._volunteerTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -13395,11 +13341,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
-            if (((this._volunteerTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._volunteerTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
-                        "r, должны использовать одинаковую строку подключения.");
-            }
             if (((this._sponsorshipTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._sponsorshipTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
@@ -13508,15 +13449,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                     if (this._raceTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._raceTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._raceTableAdapter.Adapter);
-                    }
-                }
-                if ((this._volunteerTableAdapter != null)) {
-                    revertConnections.Add(this._volunteerTableAdapter, this._volunteerTableAdapter.Connection);
-                    this._volunteerTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._volunteerTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._volunteerTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._volunteerTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._volunteerTableAdapter.Adapter);
                     }
                 }
                 if ((this._sponsorshipTableAdapter != null)) {
@@ -13631,10 +13563,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                 if ((this._raceTableAdapter != null)) {
                     this._raceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._raceTableAdapter]));
                     this._raceTableAdapter.Transaction = null;
-                }
-                if ((this._volunteerTableAdapter != null)) {
-                    this._volunteerTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._volunteerTableAdapter]));
-                    this._volunteerTableAdapter.Transaction = null;
                 }
                 if ((this._sponsorshipTableAdapter != null)) {
                     this._sponsorshipTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._sponsorshipTableAdapter]));

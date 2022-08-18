@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Automation;
 using System.Windows.Controls;
@@ -50,5 +52,39 @@ namespace WSRKart
                     throw new Exception("Не все обязательные поля заполнены");
             }
         }
+
+        public static void CheckPairPassword(PasswordBox pb1, PasswordBox pb2)
+        {
+            if (pb1.Password != pb2.Password)
+                throw new Exception("Пароли не одинаковы");
+
+            Regex regex = new Regex("^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}$");
+            if (!regex.IsMatch(pb1.Password))
+                throw new Exception("Пароль не удовлетворяет требованиям. В пароле необходимы: символы латинского алфавита в верхнем и нижнем регистре, спец символы и цифры");
+
+        }
+
+        static string[] EmailServers = { "@yandex.ru","@mail.ru","@gmail.ru","@inbox.ru","@ok.ru","@rambler.ru","@yahoo.ru","@mpt.ru","@yandex.com","@mail.com","@gmail.com","@inbox.com","@ok.com",
+                                         "@rambler.com","@yahoo.com","@mpt.com"};
+
+        public static void CheckEmail(string addr)
+        {
+            if (!new EmailAddressAttribute().IsValid(addr))
+                throw new Exception("Не корректный email");
+
+
+            bool ok = false;
+            foreach (string s in EmailServers)
+            {
+                ok = addr.EndsWith(s);
+                if (ok)
+                    break;
+            }
+
+            if (!ok)
+                throw new Exception("Не корректное имя сервера в email");
+
+        }
+
     }
 }

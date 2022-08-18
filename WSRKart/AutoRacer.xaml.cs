@@ -42,9 +42,12 @@ namespace WSRKart
             country.SelectedValuePath = "ID_Country";
             country.SelectedIndex = 77;
 
+            txtNamePage.Content = "Регистрация гонщика";
 
             if (doEdit)
             {
+                
+
                 adapter.FillById( dataSet.Racer, (int)App.Current.Properties["ID_Racer"]);
 
                 System.Data.DataRow dataRow = dataSet.Racer.Rows[0];
@@ -61,7 +64,7 @@ namespace WSRKart
 
             if(edit)
             {
-                //NPage.Content = "Редактирование профиля";
+                txtNamePage.Content = "Редактирование профиля";
                 NReg.Content = "Сохранить";
             }
 
@@ -81,8 +84,8 @@ namespace WSRKart
             {
                 CheckRequiredFields();
                 CheckDate();
-                CheckPairPassword(pswd, pswd2);
-                CheckEmail();
+                UITools.CheckPairPassword(pswd, pswd2);
+                UITools.CheckEmail(email.Text);
 
                 if (doEdit)
                 {
@@ -100,6 +103,7 @@ namespace WSRKart
                 }
                 else
                 {
+
                     int ID_User;
                     int ID_Racer;
 
@@ -117,6 +121,9 @@ namespace WSRKart
                     App.Current.Properties["ID_Role"] = 'R';
 
                     MessageBox.Show("Успешная регистрация", "Регситрация", MessageBoxButton.OK);
+
+                    
+
                     NavigationService.Navigate(new RegRace());
                 }
 
@@ -163,33 +170,6 @@ namespace WSRKart
             catch (Exception ex) { MessageBox.Show("Ошибка: " + ex.Message, null, MessageBoxButton.OK, MessageBoxImage.Error); }
         }
 
-
-        static string[] EmailServers = { "@yandex.ru","@mail.ru","@gmail.ru","@inbox.ru","@ok.ru","@rambler.ru","@yahoo.ru","@mpt.ru","@yandex.com","@mail.com","@gmail.com","@inbox.com","@ok.com",
-                                         "@rambler.com","@yahoo.com","@mpt.com"};
-        private void CheckEmail()
-        {
-            string addr = email.Text;
-
-            if( !new EmailAddressAttribute().IsValid(addr) )
-                throw new Exception("Не корректный email");
-
-
-            bool ok = false;
-            foreach (string s in EmailServers)
-            {
-                ok = addr.EndsWith(s);
-                if (ok)
-                    break;
-            }
-
-
-            if (!ok)
-                throw new Exception("Не корректное имя сервера в email");
-
-
-            //MailAddress ma = new MailAddress(addr);
-        }
-
         private void CheckRequiredFields()
         {
             Control[] cl = new Control[] { email, l_name, f_name, pswd, pswd2, genderList, drozd, country };
@@ -197,24 +177,13 @@ namespace WSRKart
                 UITools.ChekReq(c);
         }
 
-        private void CheckPairPassword(PasswordBox pb1, PasswordBox pb2)
-        {
-            if(pb1.Password != pb2.Password)
-                throw new Exception("Пароли не одинаковы");
-
-            Regex regex = new Regex("^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}$");
-            if (!regex.IsMatch(pb1.Password))
-                throw new Exception("Пароль не удовлетворяет требованиям. В пароле необходимы: символы латинского алфавита в верхнем и нижнем регистре, спец символы и цифры");
-
-        }
 
         private void CheckDate()
         {
             DateTime d1 = (DateTime)drozd.SelectedDate;
 
             if( DateTime.Now.Year - d1.Year < 18)
- 
-                throw new Exception("Нельзая зарегестрироваться, так как младше 18  лет");
+                 throw new Exception("Нельзая зарегестрироваться, так как младше 18  лет");
          
         }
 

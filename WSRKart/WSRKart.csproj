@@ -59,6 +59,9 @@
     <Compile Include="AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddVolunteers.xaml.cs">
+      <DependentUpon>AddVolunteers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminMenu.xaml.cs">
       <DependentUpon>AdminMenu.xaml</DependentUpon>
     </Compile>
@@ -68,6 +71,12 @@
     </Compile>
     <Compile Include="AutoPage.xaml.cs">
       <DependentUpon>AutoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CharityList.xaml.cs">
+      <DependentUpon>CharityList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CharityPage.xaml.cs">
+      <DependentUpon>CharityPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataSet.cs">
       <DependentUpon>DataSet.xsd</DependentUpon>
@@ -83,8 +92,8 @@
     <Compile Include="InfoEvent.xaml.cs">
       <DependentUpon>InfoEvent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ListCharity.xaml.cs">
-      <DependentUpon>ListCharity.xaml</DependentUpon>
+    <Compile Include="ListSponsor.xaml.cs">
+      <DependentUpon>ListSponsor.xaml</DependentUpon>
     </Compile>
     <Compile Include="ListFond.xaml.cs">
       <DependentUpon>ListFond.xaml</DependentUpon>
@@ -137,10 +146,10 @@
     <Compile Include="Sponsor.xaml.cs">
       <DependentUpon>Sponsor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SponsorList.xaml.cs">
-      <DependentUpon>SponsorList.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UITools.cs" />
+    <Compile Include="VolunteersList.xaml.cs">
+      <DependentUpon>VolunteersList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="YesNo.xaml.cs">
       <DependentUpon>YesNo.xaml</DependentUpon>
     </Compile>
@@ -193,11 +202,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AddVolunteers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AdminMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AutoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CharityList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CharityPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -209,7 +230,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ListCharity.xaml">
+    <Page Include="ListSponsor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -285,7 +306,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SponsorList.xaml">
+    <Page Include="VolunteersList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

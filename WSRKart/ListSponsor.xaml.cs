@@ -18,9 +18,9 @@ namespace WSRKart
     /// <summary>
     /// Логика взаимодействия для ListCharity.xaml
     /// </summary>
-    public partial class ListCharity : Page
+    public partial class ListSponsor : Page
     {
-        public ListCharity()
+        public ListSponsor()
         {
             InitializeComponent();
         }

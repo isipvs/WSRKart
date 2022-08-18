@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,13 +58,16 @@ namespace WSRKart
             UserGrid.CanUserAddRows = false;
             UserGrid.CanUserDeleteRows = false;
 
-            OnUpdate(null, null);
+            GetCountRacer();
 
+            OnUpdate(null, null);
         }
 
         private void OnEdit(object sender, RoutedEventArgs e)
         {
-
+            DataRowView dataRowView = (DataRowView)UserGrid.SelectedItem;
+            if( dataRowView != null )
+                NavigationService.Navigate(new AddUser(dataRowView.Row.Field<int>("ID_user")));
         }
 
         private void OnUpdate(object sender, RoutedEventArgs e)
@@ -75,9 +80,38 @@ namespace WSRKart
             ua.FillBy_Fltr(dataSet.User, CbRole.SelectedValue.ToString(), s);
         }
 
+        private void GetCountRacer()
+        {
+            SqlCommand sqlSelect  = new SqlCommand();
+            sqlSelect.CommandText = "select count (1) nr from racer";
+            sqlSelect.CommandType = System.Data.CommandType.Text;
+            sqlSelect.Connection  = ua.Connection;
+
+            if (sqlSelect.Connection.State != System.Data.ConnectionState.Open)
+                sqlSelect.Connection.Open();
+
+            int ret = 0;
+
+            using (SqlDataReader reader = sqlSelect.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    if (reader.Read())
+                    {
+                        ret = Convert.ToInt32(reader.GetValue(0));
+                    }
+                }
+
+                sqlSelect.Connection.Close();
+            }
+
+            txtKolPilots.Text = ret.ToString();
+
+        }
+
         private void OnAdd(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddUser());
+            NavigationService.Navigate(new AddUser(0));
         }
     }
 }
