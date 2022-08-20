@@ -26,15 +26,15 @@
 
 
             <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" x:Name="KartSkills"
-               VerticalAlignment="Stretch" Content="Kart Skills 2017" FontSize="20" Margin="10" Width="280"/>
+               VerticalAlignment="Stretch" Content="Kart Skills 2017" Margin="10" Width="280"/>
 
-            <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch" FontSize="20" Margin="10" >
+        <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" x:Name="btnCharityInfo" Click="OnCharityInfoList"
+                VerticalAlignment="Stretch" Margin="10" >
                 <TextBlock Text="Список благотоворительных организаций" TextWrapping="Wrap" TextAlignment="Center" Width="280"/>
             </Button>
 
             <Button Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" Click="OnResultLastRace"
-               VerticalAlignment="Stretch" Content="Предыдущие результаты" FontSize="20" Margin="10" Height="60" Width="280"/>
+               VerticalAlignment="Stretch" Content="Предыдущие результаты" Margin="10" Height="60" Width="280"/>
 
             <TextBlock Grid.Row="3" Grid.Column="0"  VerticalAlignment="Stretch"/>
 

@@ -32,6 +32,11 @@ namespace WSRKart
                 NavigationService.GoBack();
             }
         }
+        
+        private void OnCharityInfoList(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new CharityInfoList());
+        }
 
         private void OnResultLastRace(object sender, RoutedEventArgs e)
         {

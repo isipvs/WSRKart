@@ -44,6 +44,23 @@
                    Content="Всего спонсорских взносов: " HorizontalAlignment="Center"/>
             <TextBlock Grid.Row="2" Grid.Column="2" x:Name="NKolContributions" HorizontalAlignment="Left"/>
 
+            <ListView Name="lvwSponsors" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Height="100">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" Margin="2">
+                            <TextBlock Text="{Binding Charity_Name}"/>
+
+                            <TextBlock TextWrapping="WrapWithOverflow">
+                                <TextBlock.Text>
+                                    <Binding Path="Charity_Description"/>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!--
             <DataGrid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"
                       x:Name="SponsorGrid" AutoGenerateColumns="False"
                       Margin="10" IsReadOnly="True">
@@ -53,7 +70,7 @@
                     <DataGridTextColumn Header="Сумма"/>
                 </DataGrid.Columns>
             </DataGrid>
-
+-->
         </Grid>
         
     </StackPanel>

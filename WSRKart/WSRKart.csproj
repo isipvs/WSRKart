@@ -72,11 +72,17 @@
     <Compile Include="AutoPage.xaml.cs">
       <DependentUpon>AutoPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CharityInfoList.xaml.cs">
+      <DependentUpon>CharityInfoList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CharityList.xaml.cs">
       <DependentUpon>CharityList.xaml</DependentUpon>
     </Compile>
     <Compile Include="CharityPage.xaml.cs">
       <DependentUpon>CharityPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControlRacer.xaml.cs">
+      <DependentUpon>ControlRacer.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataSet.cs">
       <DependentUpon>DataSet.xsd</DependentUpon>
@@ -97,6 +103,9 @@
     </Compile>
     <Compile Include="ListFond.xaml.cs">
       <DependentUpon>ListFond.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListControlRacer.xaml.cs">
+      <DependentUpon>ListControlRacer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
@@ -214,11 +223,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CharityInfoList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="CharityList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CharityPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ControlRacer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -239,6 +256,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListControlRacer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

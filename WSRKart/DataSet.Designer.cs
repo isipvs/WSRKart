@@ -2830,6 +2830,8 @@ namespace WSRKart {
             
             private global::System.Data.DataColumn columnCharity_Logo;
             
+            private global::System.Data.DataColumn columnLogo_Image;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public CharityDataTable() {
@@ -2897,6 +2899,14 @@ namespace WSRKart {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Logo_ImageColumn {
+                get {
+                    return this.columnLogo_Image;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2932,13 +2942,14 @@ namespace WSRKart {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public CharityRow AddCharityRow(string Charity_Name, string Charity_Description, string Charity_Logo) {
+            public CharityRow AddCharityRow(string Charity_Name, string Charity_Description, string Charity_Logo, byte[] Logo_Image) {
                 CharityRow rowCharityRow = ((CharityRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Charity_Name,
                         Charity_Description,
-                        Charity_Logo};
+                        Charity_Logo,
+                        Logo_Image};
                 rowCharityRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCharityRow);
                 return rowCharityRow;
@@ -2972,6 +2983,7 @@ namespace WSRKart {
                 this.columnCharity_Name = base.Columns["Charity_Name"];
                 this.columnCharity_Description = base.Columns["Charity_Description"];
                 this.columnCharity_Logo = base.Columns["Charity_Logo"];
+                this.columnLogo_Image = base.Columns["Logo_Image"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2985,6 +2997,8 @@ namespace WSRKart {
                 base.Columns.Add(this.columnCharity_Description);
                 this.columnCharity_Logo = new global::System.Data.DataColumn("Charity_Logo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCharity_Logo);
+                this.columnLogo_Image = new global::System.Data.DataColumn("Logo_Image", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLogo_Image);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_Сharity}, true));
                 this.columnID_Сharity.AutoIncrement = true;
@@ -6426,6 +6440,22 @@ namespace WSRKart {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public byte[] Logo_Image {
+                get {
+                    try {
+                        return ((byte[])(this[this.tableCharity.Logo_ImageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Logo_Image\' в таблице \'Charity\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCharity.Logo_ImageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsCharity_DescriptionNull() {
                 return this.IsNull(this.tableCharity.Charity_DescriptionColumn);
             }
@@ -6446,6 +6476,18 @@ namespace WSRKart {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetCharity_LogoNull() {
                 this[this.tableCharity.Charity_LogoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsLogo_ImageNull() {
+                return this.IsNull(this.tableCharity.Logo_ImageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetLogo_ImageNull() {
+                this[this.tableCharity.Logo_ImageColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

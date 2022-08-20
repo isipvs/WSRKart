@@ -1,0 +1,106 @@
+﻿<Page x:Class="WSRKart.ControlRacer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WSRKart"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="800"
+      Title="ControlRacer"
+      Background="White"
+      ShowsNavigationUI="False"
+      FontSize="18">
+
+    <StackPanel>
+
+        <Label Content="Управление гонщиком" 
+               HorizontalAlignment="Center" Margin="5"/>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="Email: " 
+                   HorizontalAlignment="Right" Margin="5"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" x:Name="txtEmail" Margin="5"
+                       HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="Имя: " 
+                   HorizontalAlignment="Right" Margin="5"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" x:Name="txtName" Margin="5"
+                       HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Content="Фамилия: " 
+                   HorizontalAlignment="Right" Margin="5"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" x:Name="txtFamil" Margin="5"
+                       HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <Label Grid.Row="3" Grid.Column="0" Content="Пол: " 
+                   HorizontalAlignment="Right" Margin="5"/>
+            <TextBlock Grid.Row="3" Grid.Column="1" x:Name="txtGender" Margin="5"
+                       HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <Label Grid.Row="4" Grid.Column="0" Content="Дата рождения: " 
+                   HorizontalAlignment="Right" Margin="5"/>
+            <TextBlock Grid.Row="4" Grid.Column="1" x:Name="txtDrozd" Margin="5"
+                       HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <Label Grid.Row="5" Grid.Column="0" Content="Старна: " 
+                   HorizontalAlignment="Right" Margin="5"/>
+            <TextBlock Grid.Row="5" Grid.Column="1" x:Name="txtCountry" Margin="5"
+                       HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <Label Grid.Row="6" Grid.Column="0" Content="Благотворительгость: " 
+                   HorizontalAlignment="Right" Margin="5"/>
+            <TextBlock Grid.Row="6" Grid.Column="1" x:Name="txtFond" Margin="5"
+                       HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <Label Grid.Row="7" Grid.Column="0" Content="Пожертвование: " 
+                   HorizontalAlignment="Right" Margin="5"/>
+            <TextBlock Grid.Row="7" Grid.Column="1" x:Name="txtDonation" Margin="5"
+                       HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <Label Grid.Row="8" Grid.Column="0" Content="Тип гонки: " 
+                   HorizontalAlignment="Right" Margin="5"/>
+            <TextBlock Grid.Row="8" Grid.Column="1" x:Name="txtTypeRace" Margin="5"
+                       HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <Image Grid.Row="0" Grid.RowSpan="7" Grid.Column="2" Margin="10"/>
+
+            <TextBlock Grid.Row="0" Grid.Column="3" Margin="5" 
+                       TextWrapping="Wrap" TextAlignment="Center" >
+                Регистрационный<LineBreak/> статуса
+            </TextBlock>
+
+            <TextBlock Grid.Row="1" Grid.Column="3" x:Name="txtProofOfPayment"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+            <Button Grid.Row="9" Grid.Column="3" Margin="5" 
+                    HorizontalAlignment="Center" Click="OnAddRacer">
+                <TextBlock Grid.Row="0" Grid.Column="3"  
+                       TextWrapping="Wrap" TextAlignment="Center" >
+                Редактирование<LineBreak/> профиля
+                </TextBlock>
+            </Button>
+
+        </Grid>
+
+    </StackPanel>
+</Page>
