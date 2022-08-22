@@ -54,6 +54,8 @@ namespace WSRKart {
         
         private Event_TypeDataTable tableEvent_Type;
         
+        private V_Spon_ForDataTable tableV_Spon_For;
+        
         private global::System.Data.DataRelation relationFK_Racer_Country;
         
         private global::System.Data.DataRelation relationFK_Racer_Gender;
@@ -79,6 +81,10 @@ namespace WSRKart {
         private global::System.Data.DataRelation relationFK_Volunteer_Gender1;
         
         private global::System.Data.DataRelation relationFK_Race_Country1;
+        
+        private global::System.Data.DataRelation relationfk_registration;
+        
+        private global::System.Data.DataRelation relationfk_registration1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -152,6 +158,9 @@ namespace WSRKart {
                 }
                 if ((ds.Tables["Event_Type"] != null)) {
                     base.Tables.Add(new Event_TypeDataTable(ds.Tables["Event_Type"]));
+                }
+                if ((ds.Tables["V_Spon_For"] != null)) {
+                    base.Tables.Add(new V_Spon_ForDataTable(ds.Tables["V_Spon_For"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -323,6 +332,16 @@ namespace WSRKart {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public V_Spon_ForDataTable V_Spon_For {
+            get {
+                return this.tableV_Spon_For;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -432,6 +451,9 @@ namespace WSRKart {
                 }
                 if ((ds.Tables["Event_Type"] != null)) {
                     base.Tables.Add(new Event_TypeDataTable(ds.Tables["Event_Type"]));
+                }
+                if ((ds.Tables["V_Spon_For"] != null)) {
+                    base.Tables.Add(new V_Spon_ForDataTable(ds.Tables["V_Spon_For"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -556,6 +578,12 @@ namespace WSRKart {
                     this.tableEvent_Type.InitVars();
                 }
             }
+            this.tableV_Spon_For = ((V_Spon_ForDataTable)(base.Tables["V_Spon_For"]));
+            if ((initTable == true)) {
+                if ((this.tableV_Spon_For != null)) {
+                    this.tableV_Spon_For.InitVars();
+                }
+            }
             this.relationFK_Racer_Country = this.Relations["FK_Racer_Country"];
             this.relationFK_Racer_Gender = this.Relations["FK_Racer_Gender"];
             this.relationFK_User_Role = this.Relations["FK_User_Role"];
@@ -569,6 +597,8 @@ namespace WSRKart {
             this.relationFK_Racer_Gender1 = this.Relations["FK_Racer_Gender1"];
             this.relationFK_Volunteer_Gender1 = this.Relations["FK_Volunteer_Gender1"];
             this.relationFK_Race_Country1 = this.Relations["FK_Race_Country1"];
+            this.relationfk_registration = this.Relations["fk_registration"];
+            this.relationfk_registration1 = this.Relations["fk_registration1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -609,6 +639,8 @@ namespace WSRKart {
             base.Tables.Add(this.tableGenderEx);
             this.tableEvent_Type = new Event_TypeDataTable();
             base.Tables.Add(this.tableEvent_Type);
+            this.tableV_Spon_For = new V_Spon_ForDataTable();
+            base.Tables.Add(this.tableV_Spon_For);
             this.relationFK_Racer_Country = new global::System.Data.DataRelation("FK_Racer_Country", new global::System.Data.DataColumn[] {
                         this.tableCountry.ID_CountryColumn}, new global::System.Data.DataColumn[] {
                         this.tableRacer.ID_CountryColumn}, false);
@@ -661,6 +693,14 @@ namespace WSRKart {
                         this.tableVolunteer.ID_CountryColumn}, new global::System.Data.DataColumn[] {
                         this.tableRace.ID_CountryColumn}, false);
             this.Relations.Add(this.relationFK_Race_Country1);
+            this.relationfk_registration = new global::System.Data.DataRelation("fk_registration", new global::System.Data.DataColumn[] {
+                        this.tableRegistration.ID_RegistrationColumn}, new global::System.Data.DataColumn[] {
+                        this.tableSponsorship.ID_RegistrationColumn}, false);
+            this.Relations.Add(this.relationfk_registration);
+            this.relationfk_registration1 = new global::System.Data.DataRelation("fk_registration1", new global::System.Data.DataColumn[] {
+                        this.tableV_Spon_For.ID_RegistrationColumn}, new global::System.Data.DataColumn[] {
+                        this.tableSponsorship.ID_RegistrationColumn}, false);
+            this.Relations.Add(this.relationfk_registration1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -750,6 +790,12 @@ namespace WSRKart {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeEvent_Type() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeV_Spon_For() {
             return false;
         }
         
@@ -852,6 +898,9 @@ namespace WSRKart {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void Event_TypeRowChangeEventHandler(object sender, Event_TypeRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void V_Spon_ForRowChangeEventHandler(object sender, V_Spon_ForRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -4197,6 +4246,8 @@ namespace WSRKart {
             
             private global::System.Data.DataColumn columnAmount;
             
+            private global::System.Data.DataColumn columnID_Registration;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public SponsorshipDataTable() {
@@ -4256,6 +4307,14 @@ namespace WSRKart {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ID_RegistrationColumn {
+                get {
+                    return this.columnID_Registration;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4291,12 +4350,16 @@ namespace WSRKart {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SponsorshipRow AddSponsorshipRow(string SponsorName, decimal Amount) {
+            public SponsorshipRow AddSponsorshipRow(string SponsorName, decimal Amount, RegistrationRow parentRegistrationRowByfk_registration) {
                 SponsorshipRow rowSponsorshipRow = ((SponsorshipRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         SponsorName,
-                        Amount};
+                        Amount,
+                        null};
+                if ((parentRegistrationRowByfk_registration != null)) {
+                    columnValuesArray[3] = parentRegistrationRowByfk_registration[0];
+                }
                 rowSponsorshipRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSponsorshipRow);
                 return rowSponsorshipRow;
@@ -4329,6 +4392,7 @@ namespace WSRKart {
                 this.columnID_Sponsorship = base.Columns["ID_Sponsorship"];
                 this.columnSponsorName = base.Columns["SponsorName"];
                 this.columnAmount = base.Columns["Amount"];
+                this.columnID_Registration = base.Columns["ID_Registration"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4340,6 +4404,8 @@ namespace WSRKart {
                 base.Columns.Add(this.columnSponsorName);
                 this.columnAmount = new global::System.Data.DataColumn("Amount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAmount);
+                this.columnID_Registration = new global::System.Data.DataColumn("ID_Registration", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_Registration);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID_Sponsorship}, true));
                 this.columnID_Sponsorship.AutoIncrement = true;
@@ -5712,6 +5778,330 @@ namespace WSRKart {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class V_Spon_ForDataTable : global::System.Data.TypedTableBase<V_Spon_ForRow> {
+            
+            private global::System.Data.DataColumn columnID_Registration;
+            
+            private global::System.Data.DataColumn columnRacer_Name;
+            
+            private global::System.Data.DataColumn columnCharity_Name;
+            
+            private global::System.Data.DataColumn columnCharity_Logo;
+            
+            private global::System.Data.DataColumn columnID_Racer;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_Spon_ForDataTable() {
+                this.TableName = "V_Spon_For";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal V_Spon_ForDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected V_Spon_ForDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ID_RegistrationColumn {
+                get {
+                    return this.columnID_Registration;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Racer_NameColumn {
+                get {
+                    return this.columnRacer_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Charity_NameColumn {
+                get {
+                    return this.columnCharity_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Charity_LogoColumn {
+                get {
+                    return this.columnCharity_Logo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ID_RacerColumn {
+                get {
+                    return this.columnID_Racer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_Spon_ForRow this[int index] {
+                get {
+                    return ((V_Spon_ForRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_Spon_ForRowChangeEventHandler V_Spon_ForRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_Spon_ForRowChangeEventHandler V_Spon_ForRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_Spon_ForRowChangeEventHandler V_Spon_ForRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event V_Spon_ForRowChangeEventHandler V_Spon_ForRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddV_Spon_ForRow(V_Spon_ForRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_Spon_ForRow AddV_Spon_ForRow(string Racer_Name, string Charity_Name, string Charity_Logo, int ID_Racer) {
+                V_Spon_ForRow rowV_Spon_ForRow = ((V_Spon_ForRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Racer_Name,
+                        Charity_Name,
+                        Charity_Logo,
+                        ID_Racer};
+                rowV_Spon_ForRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowV_Spon_ForRow);
+                return rowV_Spon_ForRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_Spon_ForRow FindByID_Registration(int ID_Registration) {
+                return ((V_Spon_ForRow)(this.Rows.Find(new object[] {
+                            ID_Registration})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                V_Spon_ForDataTable cln = ((V_Spon_ForDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new V_Spon_ForDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnID_Registration = base.Columns["ID_Registration"];
+                this.columnRacer_Name = base.Columns["Racer_Name"];
+                this.columnCharity_Name = base.Columns["Charity_Name"];
+                this.columnCharity_Logo = base.Columns["Charity_Logo"];
+                this.columnID_Racer = base.Columns["ID_Racer"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnID_Registration = new global::System.Data.DataColumn("ID_Registration", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_Registration);
+                this.columnRacer_Name = new global::System.Data.DataColumn("Racer_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRacer_Name);
+                this.columnCharity_Name = new global::System.Data.DataColumn("Charity_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCharity_Name);
+                this.columnCharity_Logo = new global::System.Data.DataColumn("Charity_Logo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCharity_Logo);
+                this.columnID_Racer = new global::System.Data.DataColumn("ID_Racer", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_Racer);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID_Registration}, true));
+                this.columnID_Registration.AutoIncrement = true;
+                this.columnID_Registration.AutoIncrementSeed = -1;
+                this.columnID_Registration.AutoIncrementStep = -1;
+                this.columnID_Registration.AllowDBNull = false;
+                this.columnID_Registration.ReadOnly = true;
+                this.columnID_Registration.Unique = true;
+                this.columnRacer_Name.ReadOnly = true;
+                this.columnRacer_Name.MaxLength = 100;
+                this.columnCharity_Name.AllowDBNull = false;
+                this.columnCharity_Name.MaxLength = 100;
+                this.columnCharity_Logo.MaxLength = 50;
+                this.columnID_Racer.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_Spon_ForRow NewV_Spon_ForRow() {
+                return ((V_Spon_ForRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new V_Spon_ForRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(V_Spon_ForRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.V_Spon_ForRowChanged != null)) {
+                    this.V_Spon_ForRowChanged(this, new V_Spon_ForRowChangeEvent(((V_Spon_ForRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.V_Spon_ForRowChanging != null)) {
+                    this.V_Spon_ForRowChanging(this, new V_Spon_ForRowChangeEvent(((V_Spon_ForRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.V_Spon_ForRowDeleted != null)) {
+                    this.V_Spon_ForRowDeleted(this, new V_Spon_ForRowChangeEvent(((V_Spon_ForRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.V_Spon_ForRowDeleting != null)) {
+                    this.V_Spon_ForRowDeleting(this, new V_Spon_ForRowChangeEvent(((V_Spon_ForRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveV_Spon_ForRow(V_Spon_ForRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DataSet ds = new DataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "V_Spon_ForDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class CountryRow : global::System.Data.DataRow {
@@ -6368,6 +6758,17 @@ namespace WSRKart {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Registration_Charity"]);
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SponsorshipRow[] GetSponsorshipRows() {
+                if ((this.Table.ChildRelations["fk_registration"] == null)) {
+                    return new SponsorshipRow[0];
+                }
+                else {
+                    return ((SponsorshipRow[])(base.GetChildRows(this.Table.ChildRelations["fk_registration"])));
+                }
+            }
         }
         
         /// <summary>
@@ -6943,6 +7344,44 @@ namespace WSRKart {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ID_Registration {
+                get {
+                    try {
+                        return ((int)(this[this.tableSponsorship.ID_RegistrationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ID_Registration\' в таблице \'Sponsorship\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSponsorship.ID_RegistrationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public RegistrationRow RegistrationRow {
+                get {
+                    return ((RegistrationRow)(this.GetParentRow(this.Table.ParentRelations["fk_registration"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["fk_registration"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_Spon_ForRow V_Spon_ForRow {
+                get {
+                    return ((V_Spon_ForRow)(this.GetParentRow(this.Table.ParentRelations["fk_registration1"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["fk_registration1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsAmountNull() {
                 return this.IsNull(this.tableSponsorship.AmountColumn);
             }
@@ -6951,6 +7390,18 @@ namespace WSRKart {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetAmountNull() {
                 this[this.tableSponsorship.AmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsID_RegistrationNull() {
+                return this.IsNull(this.tableSponsorship.ID_RegistrationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetID_RegistrationNull() {
+                this[this.tableSponsorship.ID_RegistrationColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7326,6 +7777,121 @@ namespace WSRKart {
                 }
                 else {
                     return ((EventRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Event_Event_Type1"])));
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class V_Spon_ForRow : global::System.Data.DataRow {
+            
+            private V_Spon_ForDataTable tableV_Spon_For;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal V_Spon_ForRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableV_Spon_For = ((V_Spon_ForDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ID_Registration {
+                get {
+                    return ((int)(this[this.tableV_Spon_For.ID_RegistrationColumn]));
+                }
+                set {
+                    this[this.tableV_Spon_For.ID_RegistrationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Racer_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_Spon_For.Racer_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Racer_Name\' в таблице \'V_Spon_For\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableV_Spon_For.Racer_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Charity_Name {
+                get {
+                    return ((string)(this[this.tableV_Spon_For.Charity_NameColumn]));
+                }
+                set {
+                    this[this.tableV_Spon_For.Charity_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Charity_Logo {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_Spon_For.Charity_LogoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Charity_Logo\' в таблице \'V_Spon_For\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableV_Spon_For.Charity_LogoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ID_Racer {
+                get {
+                    return ((int)(this[this.tableV_Spon_For.ID_RacerColumn]));
+                }
+                set {
+                    this[this.tableV_Spon_For.ID_RacerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsRacer_NameNull() {
+                return this.IsNull(this.tableV_Spon_For.Racer_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetRacer_NameNull() {
+                this[this.tableV_Spon_For.Racer_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCharity_LogoNull() {
+                return this.IsNull(this.tableV_Spon_For.Charity_LogoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCharity_LogoNull() {
+                this[this.tableV_Spon_For.Charity_LogoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SponsorshipRow[] GetSponsorshipRows() {
+                if ((this.Table.ChildRelations["fk_registration1"] == null)) {
+                    return new SponsorshipRow[0];
+                }
+                else {
+                    return ((SponsorshipRow[])(base.GetChildRows(this.Table.ChildRelations["fk_registration1"])));
                 }
             }
         }
@@ -7826,6 +8392,40 @@ namespace WSRKart {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public Event_TypeRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class V_Spon_ForRowChangeEvent : global::System.EventArgs {
+            
+            private V_Spon_ForRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_Spon_ForRowChangeEvent(V_Spon_ForRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public V_Spon_ForRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -11295,7 +11895,7 @@ FROM     Volunteer AS v INNER JOIN
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class SponsorshipTableAdapter : global::System.ComponentModel.Component {
+    public partial class Sponsorship_Adapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -11309,7 +11909,7 @@ FROM     Volunteer AS v INNER JOIN
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public SponsorshipTableAdapter() {
+        public Sponsorship_Adapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -11410,36 +12010,42 @@ FROM     Volunteer AS v INNER JOIN
             tableMapping.ColumnMappings.Add("ID_Sponsorship", "ID_Sponsorship");
             tableMapping.ColumnMappings.Add("SponsorName", "SponsorName");
             tableMapping.ColumnMappings.Add("Amount", "Amount");
+            tableMapping.ColumnMappings.Add("ID_Registration", "ID_Registration");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Sponsorship] WHERE (([ID_Sponsorship] = @Original_ID_Sponsorsh" +
-                "ip) AND ([SponsorName] = @Original_SponsorName) AND ((@IsNull_Amount = 1 AND [Am" +
-                "ount] IS NULL) OR ([Amount] = @Original_Amount)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Sponsorship] WHERE (([ID_Sponsorship] = @Original_ID_Sponsorship) AND ([SponsorName] = @Original_SponsorName) AND ((@IsNull_Amount = 1 AND [Amount] IS NULL) OR ([Amount] = @Original_Amount)) AND ((@IsNull_ID_Registration = 1 AND [ID_Registration] IS NULL) OR ([ID_Registration] = @Original_ID_Registration)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Sponsorship", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Sponsorship", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SponsorName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SponsorName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Amount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Amount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ID_Registration", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Registration", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Registration", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Registration", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Sponsorship] ([SponsorName], [Amount]) VALUES (@SponsorName, @" +
-                "Amount);\r\nSELECT ID_Sponsorship, SponsorName, Amount FROM Sponsorship WHERE (ID_" +
-                "Sponsorship = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Sponsorship] ([SponsorName], [Amount], [ID_Registration]) VALU" +
+                "ES (@SponsorName, @Amount, @ID_Registration);\r\nSELECT ID_Sponsorship, SponsorNam" +
+                "e, Amount, ID_Registration FROM Sponsorship WHERE (ID_Sponsorship = SCOPE_IDENTI" +
+                "TY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SponsorName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SponsorName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Registration", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Registration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Sponsorship] SET [SponsorName] = @SponsorName, [Amount] = @Amount WHERE (([ID_Sponsorship] = @Original_ID_Sponsorship) AND ([SponsorName] = @Original_SponsorName) AND ((@IsNull_Amount = 1 AND [Amount] IS NULL) OR ([Amount] = @Original_Amount)));
-SELECT ID_Sponsorship, SponsorName, Amount FROM Sponsorship WHERE (ID_Sponsorship = @ID_Sponsorship)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Sponsorship] SET [SponsorName] = @SponsorName, [Amount] = @Amount, [ID_Registration] = @ID_Registration WHERE (([ID_Sponsorship] = @Original_ID_Sponsorship) AND ([SponsorName] = @Original_SponsorName) AND ((@IsNull_Amount = 1 AND [Amount] IS NULL) OR ([Amount] = @Original_Amount)) AND ((@IsNull_ID_Registration = 1 AND [ID_Registration] IS NULL) OR ([ID_Registration] = @Original_ID_Registration)));
+SELECT ID_Sponsorship, SponsorName, Amount, ID_Registration FROM Sponsorship WHERE (ID_Sponsorship = @ID_Sponsorship)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SponsorName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SponsorName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Registration", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Registration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Sponsorship", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Sponsorship", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SponsorName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SponsorName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Amount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Amount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 2, "Amount", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ID_Registration", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Registration", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Registration", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Registration", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Sponsorship", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Sponsorship", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -11453,11 +12059,19 @@ SELECT ID_Sponsorship, SponsorName, Amount FROM Sponsorship WHERE (ID_Sponsorshi
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_Sponsorship, SponsorName, Amount FROM dbo.Sponsorship";
+            this._commandCollection[0].CommandText = "SELECT * FROM dbo.Sponsorship";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "INSERT INTO [dbo].[Sponsorship] ([SponsorName], [Amount], [ID_Registration]) \r\nVA" +
+                "LUES (@SponsorName, @Amount, @ID_Registration)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SponsorName", global::System.Data.SqlDbType.NVarChar, 150, global::System.Data.ParameterDirection.Input, 0, 0, "SponsorName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 10, 2, "Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Registration", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Registration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11471,17 +12085,6 @@ SELECT ID_Sponsorship, SponsorName, Amount FROM Sponsorship WHERE (ID_Sponsorshi
             }
             int returnValue = this.Adapter.Fill(dataTable);
             return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSet.SponsorshipDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            DataSet.SponsorshipDataTable dataTable = new DataSet.SponsorshipDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11517,7 +12120,7 @@ SELECT ID_Sponsorship, SponsorName, Amount FROM Sponsorship WHERE (ID_Sponsorshi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID_Sponsorship, string Original_SponsorName, global::System.Nullable<decimal> Original_Amount) {
+        public virtual int Delete(int Original_ID_Sponsorship, string Original_SponsorName, global::System.Nullable<decimal> Original_Amount, global::System.Nullable<int> Original_ID_Registration) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID_Sponsorship));
             if ((Original_SponsorName == null)) {
                 throw new global::System.ArgumentNullException("Original_SponsorName");
@@ -11532,6 +12135,14 @@ SELECT ID_Sponsorship, SponsorName, Amount FROM Sponsorship WHERE (ID_Sponsorshi
             else {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ID_Registration.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_ID_Registration.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -11553,7 +12164,7 @@ SELECT ID_Sponsorship, SponsorName, Amount FROM Sponsorship WHERE (ID_Sponsorshi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string SponsorName, global::System.Nullable<decimal> Amount) {
+        public virtual int Insert(string SponsorName, global::System.Nullable<decimal> Amount, global::System.Nullable<int> ID_Registration) {
             if ((SponsorName == null)) {
                 throw new global::System.ArgumentNullException("SponsorName");
             }
@@ -11565,6 +12176,12 @@ SELECT ID_Sponsorship, SponsorName, Amount FROM Sponsorship WHERE (ID_Sponsorshi
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((ID_Registration.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(ID_Registration.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -11586,7 +12203,7 @@ SELECT ID_Sponsorship, SponsorName, Amount FROM Sponsorship WHERE (ID_Sponsorshi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string SponsorName, global::System.Nullable<decimal> Amount, int Original_ID_Sponsorship, string Original_SponsorName, global::System.Nullable<decimal> Original_Amount, int ID_Sponsorship) {
+        public virtual int Update(string SponsorName, global::System.Nullable<decimal> Amount, global::System.Nullable<int> ID_Registration, int Original_ID_Sponsorship, string Original_SponsorName, global::System.Nullable<decimal> Original_Amount, global::System.Nullable<int> Original_ID_Registration, int ID_Sponsorship) {
             if ((SponsorName == null)) {
                 throw new global::System.ArgumentNullException("SponsorName");
             }
@@ -11599,22 +12216,36 @@ SELECT ID_Sponsorship, SponsorName, Amount FROM Sponsorship WHERE (ID_Sponsorshi
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_ID_Sponsorship));
+            if ((ID_Registration.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(ID_Registration.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_ID_Sponsorship));
             if ((Original_SponsorName == null)) {
                 throw new global::System.ArgumentNullException("Original_SponsorName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_SponsorName));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_SponsorName));
             }
             if ((Original_Amount.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Original_Amount.Value));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(Original_Amount.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(ID_Sponsorship));
+            if ((Original_ID_Registration.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_ID_Registration.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(ID_Sponsorship));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -11635,8 +12266,49 @@ SELECT ID_Sponsorship, SponsorName, Amount FROM Sponsorship WHERE (ID_Sponsorshi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string SponsorName, global::System.Nullable<decimal> Amount, int Original_ID_Sponsorship, string Original_SponsorName, global::System.Nullable<decimal> Original_Amount) {
-            return this.Update(SponsorName, Amount, Original_ID_Sponsorship, Original_SponsorName, Original_Amount, Original_ID_Sponsorship);
+        public virtual int Update(string SponsorName, global::System.Nullable<decimal> Amount, global::System.Nullable<int> ID_Registration, int Original_ID_Sponsorship, string Original_SponsorName, global::System.Nullable<decimal> Original_Amount, global::System.Nullable<int> Original_ID_Registration) {
+            return this.Update(SponsorName, Amount, ID_Registration, Original_ID_Sponsorship, Original_SponsorName, Original_Amount, Original_ID_Registration, Original_ID_Sponsorship);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int Insert_Spon(string SponsorName, global::System.Nullable<decimal> Amount, global::System.Nullable<int> ID_Registration) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((SponsorName == null)) {
+                throw new global::System.ArgumentNullException("SponsorName");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(SponsorName));
+            }
+            if ((Amount.HasValue == true)) {
+                command.Parameters[1].Value = ((decimal)(Amount.Value));
+            }
+            else {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((ID_Registration.HasValue == true)) {
+                command.Parameters[2].Value = ((int)(ID_Registration.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
@@ -12740,6 +13412,169 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class V_Spon_For_Adapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public V_Spon_For_Adapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "V_Spon_For";
+            tableMapping.ColumnMappings.Add("ID_Registration", "ID_Registration");
+            tableMapping.ColumnMappings.Add("Racer_Name", "Racer_Name");
+            tableMapping.ColumnMappings.Add("Charity_Name", "Charity_Name");
+            tableMapping.ColumnMappings.Add("Charity_Logo", "Charity_Logo");
+            tableMapping.ColumnMappings.Add("ID_Racer", "ID_Racer");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::WSRKart.Properties.Settings.Default.WSRConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"SELECT r.ID_Registration, v.Last_Name + ' ' + v.First_Name + ' - ' + CAST(v.ID_Racer AS varchar) + ' (' + v.ID_Country + ')' AS Racer_Name, c.Charity_Name, c.Charity_Logo, r.ID_Racer
+FROM     Registration AS r INNER JOIN
+                  v_racer AS v ON r.ID_Racer = v.ID_Racer INNER JOIN
+                  Charity AS c ON r.ID_Charity = c.ID_Сharity";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DataSet.V_Spon_ForDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -12765,7 +13600,7 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
         
         private RaceTableAdapter _raceTableAdapter;
         
-        private SponsorshipTableAdapter _sponsorshipTableAdapter;
+        private Sponsorship_Adapter _sponsorship_Adapter;
         
         private Registration_StatusTableAdapter _registration_StatusTableAdapter;
         
@@ -12889,12 +13724,12 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public SponsorshipTableAdapter SponsorshipTableAdapter {
+        public Sponsorship_Adapter Sponsorship_Adapter {
             get {
-                return this._sponsorshipTableAdapter;
+                return this._sponsorship_Adapter;
             }
             set {
-                this._sponsorshipTableAdapter = value;
+                this._sponsorship_Adapter = value;
             }
         }
         
@@ -12973,9 +13808,9 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                             && (this._raceTableAdapter.Connection != null))) {
                     return this._raceTableAdapter.Connection;
                 }
-                if (((this._sponsorshipTableAdapter != null) 
-                            && (this._sponsorshipTableAdapter.Connection != null))) {
-                    return this._sponsorshipTableAdapter.Connection;
+                if (((this._sponsorship_Adapter != null) 
+                            && (this._sponsorship_Adapter.Connection != null))) {
+                    return this._sponsorship_Adapter.Connection;
                 }
                 if (((this._registration_StatusTableAdapter != null) 
                             && (this._registration_StatusTableAdapter.Connection != null))) {
@@ -13019,7 +13854,7 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                 if ((this._raceTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._sponsorshipTableAdapter != null)) {
+                if ((this._sponsorship_Adapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._registration_StatusTableAdapter != null)) {
@@ -13057,6 +13892,15 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._charity_Adapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Charity.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._charity_Adapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._role_Adapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Role.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -13066,12 +13910,12 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._charity_Adapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Charity.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._registration_Adapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Registration.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._charity_Adapter.Update(updatedRows));
+                    result = (result + this._registration_Adapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -13093,15 +13937,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._registration_Adapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Registration.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._registration_Adapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._event_Adapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Event.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -13111,12 +13946,12 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._sponsorshipTableAdapter != null)) {
+            if ((this._sponsorship_Adapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Sponsorship.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._sponsorshipTableAdapter.Update(updatedRows));
+                    result = (result + this._sponsorship_Adapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -13155,6 +13990,14 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._charity_Adapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Charity.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._charity_Adapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._role_Adapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Role.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -13163,11 +14006,11 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._charity_Adapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Charity.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._registration_Adapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Registration.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._charity_Adapter.Update(addedRows));
+                    result = (result + this._registration_Adapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -13187,14 +14030,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._registration_Adapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Registration.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._registration_Adapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._event_Adapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Event.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -13203,11 +14038,11 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._sponsorshipTableAdapter != null)) {
+            if ((this._sponsorship_Adapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Sponsorship.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._sponsorshipTableAdapter.Update(addedRows));
+                    result = (result + this._sponsorship_Adapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -13237,11 +14072,11 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._sponsorshipTableAdapter != null)) {
+            if ((this._sponsorship_Adapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Sponsorship.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._sponsorshipTableAdapter.Update(deletedRows));
+                    result = (result + this._sponsorship_Adapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -13250,14 +14085,6 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._event_Adapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._registration_Adapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Registration.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._registration_Adapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -13277,11 +14104,11 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._charity_Adapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Charity.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._registration_Adapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Registration.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._charity_Adapter.Update(deletedRows));
+                    result = (result + this._registration_Adapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -13290,6 +14117,14 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._role_Adapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._charity_Adapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Charity.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._charity_Adapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -13383,8 +14218,8 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
-            if (((this._sponsorshipTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._sponsorshipTableAdapter.Connection) == false))) {
+            if (((this._sponsorship_Adapter != null) 
+                        && (this.MatchTableAdapterConnection(this._sponsorship_Adapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
@@ -13493,13 +14328,13 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                         adaptersWithAcceptChangesDuringUpdate.Add(this._raceTableAdapter.Adapter);
                     }
                 }
-                if ((this._sponsorshipTableAdapter != null)) {
-                    revertConnections.Add(this._sponsorshipTableAdapter, this._sponsorshipTableAdapter.Connection);
-                    this._sponsorshipTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._sponsorshipTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._sponsorshipTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._sponsorshipTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._sponsorshipTableAdapter.Adapter);
+                if ((this._sponsorship_Adapter != null)) {
+                    revertConnections.Add(this._sponsorship_Adapter, this._sponsorship_Adapter.Connection);
+                    this._sponsorship_Adapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._sponsorship_Adapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._sponsorship_Adapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._sponsorship_Adapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._sponsorship_Adapter.Adapter);
                     }
                 }
                 if ((this._registration_StatusTableAdapter != null)) {
@@ -13606,9 +14441,9 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                     this._raceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._raceTableAdapter]));
                     this._raceTableAdapter.Transaction = null;
                 }
-                if ((this._sponsorshipTableAdapter != null)) {
-                    this._sponsorshipTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._sponsorshipTableAdapter]));
-                    this._sponsorshipTableAdapter.Transaction = null;
+                if ((this._sponsorship_Adapter != null)) {
+                    this._sponsorship_Adapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._sponsorship_Adapter]));
+                    this._sponsorship_Adapter.Transaction = null;
                 }
                 if ((this._registration_StatusTableAdapter != null)) {
                     this._registration_StatusTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._registration_StatusTableAdapter]));
