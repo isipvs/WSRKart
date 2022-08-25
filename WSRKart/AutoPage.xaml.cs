@@ -83,6 +83,8 @@ namespace WSRKart
                     NavigationService.Navigate(new MenuRacer());
                 else if (roleId == 'A')
                     NavigationService.Navigate(new MenuAdmin());
+                else if (roleId == 'C')
+                    NavigationService.Navigate(new СoordinatorMenu());
 
             }
             catch (Exception ex) {

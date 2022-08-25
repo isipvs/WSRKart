@@ -97,11 +97,16 @@ namespace WSRKart
                     txbName.Text, d, (int)cbxRacers.SelectedValue
                 );
 
-
+                NavigationService.Navigate(new ProofSponsor());
             }
             catch (Exception ex) {
                 MessageBox.Show("Ошибка: " + ex.Message, null, MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void NUM_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            UITools.Num_PreviewTextInput(e);
         }
     }
 }

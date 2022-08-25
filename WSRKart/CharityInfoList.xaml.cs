@@ -29,6 +29,7 @@ namespace WSRKart
         DataSet dataSet = new DataSet();
         Charity_Adapter adapter = new Charity_Adapter();
 
+
         public CharityInfoList()
         {
             InitializeComponent();

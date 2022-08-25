@@ -43,9 +43,13 @@
         <PasswordBox x:Name="pswd2" Grid.Column="1" Grid.Row="2" Margin="5,5,5,5" AutomationProperties.LabeledBy="{Binding ElementName=lbPswd2}"/>
 
         <Label x:Name="lbF_name" Grid.Row="3" Grid.Column="0" Content="Имя:" HorizontalAlignment="Right"/>
-        <TextBox x:Name="f_name" Grid.Column="1" Grid.Row="3" Margin="5,5,5,5" AutomationProperties.LabeledBy="{Binding ElementName=lbF_name}"/>
+        <TextBox x:Name="f_name" Grid.Column="1" Grid.Row="3" Margin="5,5,5,5" 
+                 AutomationProperties.LabeledBy="{Binding ElementName=lbF_name}"
+                 PreviewTextInput="FIO_PreviewTextInput"/>
         <Label x:Name="lbL_name" Grid.Row="4" Grid.Column="0" Content="Фамилия:" HorizontalAlignment="Right"/>
-        <TextBox Grid.Row="4" x:Name="l_name" Grid.Column="1" Margin="5,5,5,5" HorizontalAlignment="Stretch" AutomationProperties.LabeledBy="{Binding ElementName=lbL_name}"/>
+        <TextBox Grid.Row="4" x:Name="l_name" Grid.Column="1" Margin="5,5,5,5" 
+                 HorizontalAlignment="Stretch" AutomationProperties.LabeledBy="{Binding ElementName=lbL_name}"
+                 PreviewTextInput="FIO_PreviewTextInput"/>
 
         <Label x:Name="lbGender" Grid.Row="5" Grid.Column="0" Content="Пол:" HorizontalAlignment="Right"/>
         <ComboBox Grid.Row="5" x:Name="genderList" Grid.Column="1" Margin="5,5,5,5" AutomationProperties.LabeledBy="{Binding ElementName=lbGender}"/>
@@ -64,7 +68,7 @@
         <ComboBox Grid.Row="5" x:Name="country" Grid.Column="4" Margin="5,5,5,5" AutomationProperties.LabeledBy="{Binding ElementName=lbCountry}"/>
 
         <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
-               Margin="5" Content="Регистрация статуса"/>
+               Margin="5" Content="Регистрация статуса" />
         <ComboBox Grid.Row="7" Grid.Column="0" Margin="5" x:Name="cbProofOfPayment"/>
 
         <Button Grid.Row="7" Grid.Column="1" x:Name="NReg" 

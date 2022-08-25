@@ -20,6 +20,7 @@ namespace WSRKart
     /// </summary>
     public partial class ListControlRacer : Page
     {
+        DataSet dataSet = new DataSet();
         public ListControlRacer()
         {
             InitializeComponent();
@@ -27,7 +28,7 @@ namespace WSRKart
 
         private void OnEdit(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new ProfilReacer());
         }
 
         private void OnRefresh(object sender, RoutedEventArgs e)

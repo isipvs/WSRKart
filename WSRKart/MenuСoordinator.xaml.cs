@@ -27,7 +27,7 @@ namespace WSRKart
 
         private void OnRacerc(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new RacerResult());
+            NavigationService.Navigate(new ListControlRacer());
         }
 
         private void OnSponsor(object sender, RoutedEventArgs e)

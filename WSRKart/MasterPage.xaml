@@ -23,6 +23,6 @@
         <Label Content="Москва, Россия 20 июня 2017" Background="LightGray" FontSize="24" HorizontalContentAlignment="Center"/>
         <Frame Source="MainPage.xaml" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="1000" Height="500">
         </Frame>
-        <Label  Content="До начала события 0 лет, 8 месяцев, 5 дней, 13 минут и 18 секунд" Background="LightGray" HorizontalContentAlignment="Center" FontSize="20"/>
+        <Label x:Name="MasterTimer" Background="LightGray" HorizontalContentAlignment="Center" FontSize="20"/>
     </StackPanel>
 </Page>

@@ -109,17 +109,17 @@ namespace WSRKart
             RefVzn.Content = "$ " + summ;
         }
 
-        private void Vozr()
-        {
-            
-        }
-
         private void Back(object sender, RoutedEventArgs e)
         {
             if (NavigationService.CanGoBack)
             {
                 NavigationService.GoBack();
             }
+        }
+
+        private void NUM_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            UITools.Num_PreviewTextInput(e);
         }
     }
 }

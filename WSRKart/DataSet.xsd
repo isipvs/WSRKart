@@ -903,7 +903,7 @@ SELECT ID_Event_type, Event_Type_Name FROM Event_Type WHERE (ID_Event_type = @ID
                     <CommandText>SELECT r.ID_Registration, v.Last_Name + ' ' + v.First_Name + ' - ' + CAST(v.ID_Racer AS varchar) + ' (' + v.ID_Country + ')' AS Racer_Name, c.Charity_Name, c.Charity_Logo, r.ID_Racer
 FROM     Registration AS r INNER JOIN
                   v_racer AS v ON r.ID_Racer = v.ID_Racer INNER JOIN
-                  Charity AS c ON r.ID_Charity = c.ID_Сharity</CommandText>
+                  Charity AS c ON r.ID_Сharity = c.ID_Сharity </CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -915,6 +915,25 @@ FROM     Registration AS r INNER JOIN
               <Mapping SourceColumn="Charity_Name" DataSetColumn="Charity_Name" />
               <Mapping SourceColumn="Charity_Logo" DataSetColumn="Charity_Logo" />
               <Mapping SourceColumn="ID_Racer" DataSetColumn="ID_Racer" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_CHARITY_SUM_Adapter" GeneratorDataComponentClassName="V_CHARITY_SUM_Adapter" Name="V_CHARITY_SUM" UserDataComponentName="V_CHARITY_SUM_Adapter">
+            <MainSource>
+              <DbSource ConnectionRef="WSRConnectionString (Settings)" DbObjectName="WSR.dbo.V_CHARITY_SUM" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID_Сharity, Charity_Name, Charity_Logo, msum FROM dbo.V_CHARITY_SUM</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID_Сharity" DataSetColumn="ID_Сharity" />
+              <Mapping SourceColumn="Charity_Name" DataSetColumn="Charity_Name" />
+              <Mapping SourceColumn="Charity_Logo" DataSetColumn="Charity_Logo" />
+              <Mapping SourceColumn="msum" DataSetColumn="msum" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -1132,7 +1151,7 @@ FROM     Registration AS r INNER JOIN
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Logo_Image" msprop:Generator_ColumnPropNameInRow="Logo_Image" msprop:Generator_ColumnPropNameInTable="Logo_ImageColumn" msprop:Generator_ColumnVarNameInTable="columnLogo_Image" msprop:Generator_UserColumnName="Logo_Image" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Logo_Image" msprop:Generator_ColumnPropNameInTable="Logo_ImageColumn" msprop:Generator_ColumnPropNameInRow="Logo_Image" msprop:Generator_UserColumnName="Logo_Image" msprop:Generator_ColumnVarNameInTable="columnLogo_Image" type="xs:base64Binary" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1257,7 +1276,7 @@ FROM     Registration AS r INNER JOIN
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_UserColumnName="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" type="xs:decimal" minOccurs="0" />
-              <xs:element name="ID_Registration" msprop:Generator_ColumnPropNameInRow="ID_Registration" msprop:Generator_ColumnPropNameInTable="ID_RegistrationColumn" msprop:Generator_ColumnVarNameInTable="columnID_Registration" msprop:Generator_UserColumnName="ID_Registration" type="xs:int" minOccurs="0" />
+              <xs:element name="ID_Registration" msprop:Generator_ColumnPropNameInTable="ID_RegistrationColumn" msprop:Generator_ColumnPropNameInRow="ID_Registration" msprop:Generator_UserColumnName="ID_Registration" msprop:Generator_ColumnVarNameInTable="columnID_Registration" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1363,32 +1382,54 @@ FROM     Registration AS r INNER JOIN
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="V_Spon_For" msprop:Generator_RowEvHandlerName="V_Spon_ForRowChangeEventHandler" msprop:Generator_RowDeletedName="V_Spon_ForRowDeleted" msprop:Generator_RowDeletingName="V_Spon_ForRowDeleting" msprop:Generator_RowEvArgName="V_Spon_ForRowChangeEvent" msprop:Generator_TablePropName="V_Spon_For" msprop:Generator_RowChangedName="V_Spon_ForRowChanged" msprop:Generator_RowChangingName="V_Spon_ForRowChanging" msprop:Generator_TableClassName="V_Spon_ForDataTable" msprop:Generator_RowClassName="V_Spon_ForRow" msprop:Generator_TableVarName="tableV_Spon_For" msprop:Generator_UserTableName="V_Spon_For">
+        <xs:element name="V_Spon_For" msprop:Generator_RowEvHandlerName="V_Spon_ForRowChangeEventHandler" msprop:Generator_RowDeletedName="V_Spon_ForRowDeleted" msprop:Generator_RowDeletingName="V_Spon_ForRowDeleting" msprop:Generator_RowEvArgName="V_Spon_ForRowChangeEvent" msprop:Generator_TablePropName="V_Spon_For" msprop:Generator_RowChangedName="V_Spon_ForRowChanged" msprop:Generator_UserTableName="V_Spon_For" msprop:Generator_RowChangingName="V_Spon_ForRowChanging" msprop:Generator_RowClassName="V_Spon_ForRow" msprop:Generator_TableClassName="V_Spon_ForDataTable" msprop:Generator_TableVarName="tableV_Spon_For">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID_Registration" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="ID_Registration" msprop:Generator_ColumnPropNameInTable="ID_RegistrationColumn" msprop:Generator_ColumnVarNameInTable="columnID_Registration" msprop:Generator_UserColumnName="ID_Registration" type="xs:int" />
-              <xs:element name="Racer_Name" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="Racer_Name" msprop:Generator_ColumnPropNameInTable="Racer_NameColumn" msprop:Generator_ColumnVarNameInTable="columnRacer_Name" msprop:Generator_UserColumnName="Racer_Name" minOccurs="0">
+              <xs:element name="ID_Registration" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInTable="ID_RegistrationColumn" msprop:Generator_ColumnPropNameInRow="ID_Registration" msprop:Generator_UserColumnName="ID_Registration" msprop:Generator_ColumnVarNameInTable="columnID_Registration" type="xs:int" />
+              <xs:element name="Racer_Name" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInTable="Racer_NameColumn" msprop:Generator_ColumnPropNameInRow="Racer_Name" msprop:Generator_UserColumnName="Racer_Name" msprop:Generator_ColumnVarNameInTable="columnRacer_Name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Charity_Name" msprop:Generator_ColumnPropNameInRow="Charity_Name" msprop:Generator_ColumnPropNameInTable="Charity_NameColumn" msprop:Generator_ColumnVarNameInTable="columnCharity_Name" msprop:Generator_UserColumnName="Charity_Name">
+              <xs:element name="Charity_Name" msprop:Generator_ColumnPropNameInTable="Charity_NameColumn" msprop:Generator_ColumnPropNameInRow="Charity_Name" msprop:Generator_UserColumnName="Charity_Name" msprop:Generator_ColumnVarNameInTable="columnCharity_Name">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Charity_Logo" msprop:Generator_ColumnPropNameInRow="Charity_Logo" msprop:Generator_ColumnPropNameInTable="Charity_LogoColumn" msprop:Generator_ColumnVarNameInTable="columnCharity_Logo" msprop:Generator_UserColumnName="Charity_Logo" minOccurs="0">
+              <xs:element name="Charity_Logo" msprop:Generator_ColumnPropNameInTable="Charity_LogoColumn" msprop:Generator_ColumnPropNameInRow="Charity_Logo" msprop:Generator_UserColumnName="Charity_Logo" msprop:Generator_ColumnVarNameInTable="columnCharity_Logo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ID_Racer" msprop:Generator_ColumnPropNameInRow="ID_Racer" msprop:Generator_ColumnPropNameInTable="ID_RacerColumn" msprop:Generator_ColumnVarNameInTable="columnID_Racer" msprop:Generator_UserColumnName="ID_Racer" type="xs:int" />
+              <xs:element name="ID_Racer" msprop:Generator_ColumnPropNameInTable="ID_RacerColumn" msprop:Generator_ColumnPropNameInRow="ID_Racer" msprop:Generator_UserColumnName="ID_Racer" msprop:Generator_ColumnVarNameInTable="columnID_Racer" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="V_CHARITY_SUM" msprop:Generator_RowClassName="V_CHARITY_SUMRow" msprop:Generator_RowEvHandlerName="V_CHARITY_SUMRowChangeEventHandler" msprop:Generator_RowDeletedName="V_CHARITY_SUMRowDeleted" msprop:Generator_RowDeletingName="V_CHARITY_SUMRowDeleting" msprop:Generator_RowEvArgName="V_CHARITY_SUMRowChangeEvent" msprop:Generator_TablePropName="V_CHARITY_SUM" msprop:Generator_RowChangedName="V_CHARITY_SUMRowChanged" msprop:Generator_UserTableName="V_CHARITY_SUM" msprop:Generator_RowChangingName="V_CHARITY_SUMRowChanging" msprop:Generator_TableClassName="V_CHARITY_SUMDataTable" msprop:Generator_TableVarName="tableV_CHARITY_SUM">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID_Сharity" msprop:Generator_UserColumnName="ID_Сharity" msprop:Generator_ColumnPropNameInTable="ID_СharityColumn" msprop:Generator_ColumnPropNameInRow="ID_Сharity" msprop:Generator_ColumnVarNameInTable="columnID_Сharity" type="xs:int" />
+              <xs:element name="Charity_Name" msprop:Generator_UserColumnName="Charity_Name" msprop:Generator_ColumnPropNameInTable="Charity_NameColumn" msprop:Generator_ColumnPropNameInRow="Charity_Name" msprop:Generator_ColumnVarNameInTable="columnCharity_Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Charity_Logo" msprop:Generator_UserColumnName="Charity_Logo" msprop:Generator_ColumnPropNameInTable="Charity_LogoColumn" msprop:Generator_ColumnPropNameInRow="Charity_Logo" msprop:Generator_ColumnVarNameInTable="columnCharity_Logo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="msum" msprop:Generator_UserColumnName="msum" msprop:Generator_ColumnPropNameInTable="msumColumn" msprop:Generator_ColumnPropNameInRow="msum" msprop:Generator_ColumnVarNameInTable="columnmsum" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1467,7 +1508,7 @@ FROM     Registration AS r INNER JOIN
       <msdata:Relationship name="FK_Volunteer_Gender1" msdata:parent="GenderEx" msdata:child="Volunteer" msdata:parentkey="ID_Gender" msdata:childkey="Gender_ID" msprop:Generator_UserParentTable="GenderEx" msprop:Generator_UserChildTable="Volunteer" msprop:Generator_RelationVarName="relationFK_Volunteer_Gender1" msprop:Generator_ChildPropName="GetVolunteerRows" msprop:Generator_ParentPropName="GenderExRow" msprop:Generator_UserRelationName="FK_Volunteer_Gender1" />
       <msdata:Relationship name="FK_Race_Country1" msdata:parent="Volunteer" msdata:child="Race" msdata:parentkey="ID_Country" msdata:childkey="ID_Country" msprop:Generator_UserParentTable="Volunteer" msprop:Generator_UserChildTable="Race" msprop:Generator_RelationVarName="relationFK_Race_Country1" msprop:Generator_ChildPropName="GetRaceRows" msprop:Generator_UserRelationName="FK_Race_Country1" msprop:Generator_ParentPropName="VolunteerRow" />
       <msdata:Relationship name="fk_registration" msdata:parent="Registration" msdata:child="Sponsorship" msdata:parentkey="ID_Registration" msdata:childkey="ID_Registration" msprop:Generator_UserParentTable="Registration" msprop:Generator_UserChildTable="Sponsorship" msprop:Generator_RelationVarName="relationfk_registration" msprop:Generator_ChildPropName="GetSponsorshipRows" msprop:Generator_ParentPropName="RegistrationRow" msprop:Generator_UserRelationName="fk_registration" />
-      <msdata:Relationship name="fk_registration1" msdata:parent="V_Spon_For" msdata:child="Sponsorship" msdata:parentkey="ID_Registration" msdata:childkey="ID_Registration" msprop:Generator_UserParentTable="V_Spon_For" msprop:Generator_UserChildTable="Sponsorship" msprop:Generator_RelationVarName="relationfk_registration1" msprop:Generator_UserRelationName="fk_registration1" msprop:Generator_ChildPropName="GetSponsorshipRows" msprop:Generator_ParentPropName="V_Spon_ForRow" />
+      <msdata:Relationship name="fk_registration1" msdata:parent="V_Spon_For" msdata:child="Sponsorship" msdata:parentkey="ID_Registration" msdata:childkey="ID_Registration" msprop:Generator_UserParentTable="V_Spon_For" msprop:Generator_UserChildTable="Sponsorship" msprop:Generator_RelationVarName="relationfk_registration1" msprop:Generator_ChildPropName="GetSponsorshipRows" msprop:Generator_UserRelationName="fk_registration1" msprop:Generator_ParentPropName="V_Spon_ForRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
